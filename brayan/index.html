@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 1</title>
+  <style>
+    body {
+      background-image: url("Space-Background-Images.jpg"); 
+      
+    }
+     @keyframes color-change {
+      0%   {color: red;}
+      25%  {color: yellow;}
+      50%  {color: blue;}
+      100% {color: green;}
+     }
+
+    p, ul, h1, h2  {
+      color: white;
+      animation: color-change 5s infinite;
+    }
+    a {
+      color: orange;
+    }
+    .all {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      margin-left: 250px;
+      margin-right: 250px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 15px solid black;
+      padding: 0px;
+    }
+   
+    </style>
+    
+</head>
+<body>
+
+  <div class="all">
+  <h1>Brayan Rivas</h1>
+
+  <img src="Picture1.png" alt="Photo of Brayan Rivas" width="200">
+
+  <p>Here is a link to my favorite book:</p>
+  <a class= "link" href="https://en.wikipedia.org/wiki/Flowers_for_Algernon">Flowers For Algernon</a>
+
+  <p>
+    My name is Brayan Rivas. I am a student at the University of Houston Downtown.
+    I currently major in Computer Science and work in the Intercontinenal Hotel in the
+    Medical Center. I own two dogs, they are both huskies actually. One is really friendly
+    and the other one is really shy. I used to own a small turtle that I picked up on the
+    road near my neighborhood. I'm pretty social and love to meet and learn about new
+    people. I believe everyone has their own stories and in a way deserve to be told and
+    listened too. Speaking of stories being told I also love to read and my favorite book
+    has to be Flowers For Algernon. I also like to listen to jazz music when I'm studying
+    but when I'm not studying my favorite song is "La Cosa Mas Bella" by Eros Ramazzottim,
+    and I love to watch movies as well. Some of my favorites are the Spider-Man movies and
+    then I also like movies such as Marty Supreme, The Pursuit of Happiness, and Whiplash.
+    Then there's also videogames. I love to play single player story games like "FireWatch"
+    and "Until Then". But many times I play multiplayer games like "Rainbow Six Siege" with
+    one of my friends.
+  </p>
+
+   <h2>Projects</h2>
+
+  <ul>
+    <li>
+      Calculator
+      <table border="1">
+        <tr>
+          <th>Language</th>
+        </tr>
+        <tr>
+          <td>Java</td>
+        </tr>
+      </table>
+    </li>
+
+    <li>
+      URL Shortener
+      <table border="1">
+        <tr>
+          <th>Language</th>
+        </tr>
+        <tr>
+          <td>Python</td>
+        </tr>
+      </table>
+    </li>
+
+    <li>
+      Calendar App
+      <table border="1">
+        <tr>
+          <th>Language</th>
+        </tr>
+        <tr>
+          <td>TypeScript</td>
+        </tr>
+        <tr>
+          <td>HTML</td>
+        </tr>
+        <tr>
+          <td>CSS</td>
+        </tr>
+        <tr>
+          <td>JavaScript</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+
+<p>This is a use of javascript:</p>
+ <p>Count: <span id="number">0</span></p>
+  <button id="counterButton">Add 1</button>
+  <script>
+    let number = 0;
+    const display = document.getElementById("number");
+    const button = document.getElementById("counterButton");
+
+    button.addEventListener("click", () => {
+      number+=1;
+      display.textContent = number;
+    });
+  </script>
+
+</body>
+</html>
