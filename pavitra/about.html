@@ -8,63 +8,67 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="about-page">
-  <nav class="about-nav" aria-label="Main navigation">
-    <a href="index.html" class="back-link">← Portfolio</a>
-    <a href="mailto:pavitrapatil333@gmail.com">Say hello ↗</a>
-  </nav>
-  <main class="about-layout">
-    <article class="about-story">
-      <header>
-        <p class="eyebrow">A little about me</p>
-        <h1>Hey, I’m Pavitra.</h1>
-        <p class="about-lede">A Computer Science student at UHD who enjoys building creative projects and turning ideas into reality.</p>
-      </header>
-      <section aria-labelledby="start-title">
-        <h2 id="start-title">It started with Roblox.</h2>
-        <p>I taught myself Lua and began experimenting with game development. What started as a hobby eventually became something I wanted to pursue professionally.</p>
-        <p>Today, I’m based in Houston, Texas, pursuing my bachelor’s degree and taking part in ACM club activities. Whether I’m developing software, experimenting with game mechanics, or exploring a new programming concept, I enjoy the process of learning and creating.</p>
-      </section>
-      <section aria-labelledby="home-title">
-        <h2 id="home-title">From Mumbai to Houston.</h2>
-        <p>I grew up in Mumbai and moved to the United States in 2023 to pursue my education. The move changed me in many ways—including my fashion.</p>
-        <p>I’ve also visited Austin, Frankfurt, New York, and Philadelphia. Frankfurt is my favorite so far!</p>
-      </section>
-      <section aria-labelledby="creative-title">
-        <h2 id="creative-title">Curiosity, creativity, and people.</h2>
-        <p>I’ve always been curious about how technology can turn simple ideas into meaningful experiences. I especially love where programming, art, and interactive experiences come together.</p>
-        <p>Beyond coding, I enjoy connecting with people, sharing knowledge, and discovering new perspectives.</p>
-      </section>
-      <section aria-labelledby="loves-title">
-        <h2 id="loves-title">A few things I love.</h2>
-        <p>My cats, boba tea, my drawing tablet, <cite>Alice in Borderland</cite>, the gym, my green outfit, walks through rainy forests, and Clip Studio Paint.</p>
-        <p>I also have a soft spot for Arencia Vitamin C Shot, facial acupressure, a good shampoo and conditioner, Gatsby Air Rise hair wax—and my hair.</p>
-        <p class="about-emphasis">Most importantly, my friends and family.</p>
-      </section>
-    </article>
-    <aside class="about-aside" aria-label="More about Pavitra">
-      <img class="about-art" src="assets/skyline.svg" alt="" width="700" height="1100">
-      <section>
-        <h2>Languages</h2>
-        <dl class="language-list">
-          <div><dt>English</dt><dd>Conversational</dd></div>
-          <div><dt>Hindi</dt><dd>Native</dd></div>
-          <div><dt>Chinese</dt><dd>Learning · HSK 0.5</dd></div>
-        </dl>
-      </section>
-      <section>
-        <h2>Side projects</h2>
-        <ul class="simple-list"><li>Quiz Companion</li><li>ACM Discord Bot</li></ul>
-      </section>
-      <section>
-        <h2>Where to find me</h2>
-        <ul class="contact-list">
-          <li><a href="mailto:pavitrapatil333@gmail.com">Email ↗</a></li>
-          <li><a href="https://www.linkedin.com/in/pavipatil/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
-          <li><a href="https://github.com/Pavi21P" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
-        </ul>
-      </section>
-    </aside>
+  <details class="about-menu">
+    <summary aria-label="Open navigation menu"><span class="menu-bars" aria-hidden="true"></span></summary>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Portfolio</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="mailto:pavitrapatil333@gmail.com">Say hello ↗</a>
+    </nav>
+  </details>
+  <main class="about-content">
+    <section class="about-row" aria-labelledby="intro-title">
+      <img class="about-visual" src="assets/hero-texture.jpeg" alt="" width="612" height="780">
+      <div class="about-copy">
+        <h1 id="intro-title">Hey, I'm Pavitra.</h1>
+        <p>I'm a Computer Science student at UHD who enjoys building creative projects and turning ideas into reality.</p>
+        <p>Currently, I'm based in Houston, Texas, pursuing my bachelor's degree while engaging in ACM club activities.</p>
+        <p>My journey into programming started with Roblox, where I taught myself Lua and began experimenting with game development. What started as a hobby eventually became something I wanted to pursue professionally.</p>
+      </div>
+    </section>
+    <section class="about-row reverse" aria-label="From Mumbai to Houston">
+      <img class="about-visual" src="assets/mountain.jpg" alt="" width="1365" height="2048">
+      <div class="about-copy">
+        <p>I grew up in Mumbai before moving to the United States in 2023 to pursue my education.</p>
+        <p>Moving to the US completely changed me as a person, especially my fashion.</p>
+        <p>I've also been to Austin, Frankfurt, New York, and Philadelphia—and I can say that Frankfurt is the best!</p>
+      </div>
+    </section>
+    <section class="about-row" aria-label="Creativity and curiosity">
+      <img class="about-visual" src="assets/project-hover-2.gif" alt="" width="864" height="864">
+      <div class="about-copy">
+        <p>I've always been curious about how technology can transform simple ideas into meaningful experiences.</p>
+        <p>Whether I'm developing software, experimenting with game mechanics, or exploring new programming concepts, I enjoy the process of learning and creating.</p>
+        <p>I also love the creative side of technology, especially where programming, art, and interactive experiences come together.</p>
+        <p>Beyond coding, I really enjoy connecting with people, sharing knowledge, and discovering new perspectives!</p>
+      </div>
+    </section>
+    <section class="about-section" aria-labelledby="side-title">
+      <h2 id="side-title">Side Projects</h2>
+      <div class="side-projects"><div>Quiz Companion</div><div>ACM Discord Bot</div></div>
+    </section>
+    <section class="about-section" aria-labelledby="languages-title">
+      <h2 id="languages-title">Languages</h2>
+      <div class="language-cards">
+        <article class="language-card"><span class="language-symbol" aria-hidden="true">Aa</span><div><h3>English</h3><p>Conversational</p></div></article>
+        <article class="language-card"><span class="language-symbol" aria-hidden="true">अ</span><div><h3>Hindi</h3><p>Native</p></div></article>
+        <article class="language-card"><span class="language-symbol" aria-hidden="true">你好</span><div><h3>Chinese</h3><p>Learning · HSK 0.5</p></div></article>
+      </div>
+    </section>
+    <section class="about-section" aria-labelledby="loves-title">
+      <h2 id="loves-title">Things I love</h2>
+      <p class="loves-list">My cats, boba tea, my drawing tablet, <cite>Alice in Borderland</cite>, the gym, Arencia Vitamin C Shot, my green outfit, walking in rainy forests, facial acupressure, shampoo and conditioner, Gatsby Air Rise hair wax, Clip Studio Paint, and my hair.</p>
+      <p class="loves-list"><strong>And most importantly, friends and family.</strong></p>
+    </section>
+    <section class="about-section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Where to find me</h2>
+      <div class="about-contact">
+        <a href="mailto:pavitrapatil333@gmail.com">Email ↗</a>
+        <a href="https://www.linkedin.com/in/pavipatil/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://github.com/Pavi21P" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </section>
   </main>
-  <footer class="about-footer">Made with curiosity, in Houston.</footer>
+  <footer class="about-footer">Pavitra Patil · Houston, Texas</footer>
 </body>
 </html>
