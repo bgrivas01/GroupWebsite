@@ -10,6 +10,10 @@ const spring = Array.from({length: 41}, (_, i) => {
   return i === 40 ? 1 : 1 - 1.25 * Math.exp(-10*t) + .25 * Math.exp(-50*t);
 });
 const easing = `linear(${spring.join(',')})`;
+const destinations = {
+  connect: {href:'https://www.linkedin.com/in/pavipatil/', label:'Connect with Pavitra on LinkedIn'},
+  status: {href:'mailto:pavitrapatil333@gmail.com', label:'Email Pavitra'}
+};
 function styleValues(el) {
   const css = getComputedStyle(el);
   return Object.fromEntries(properties.map(key => [key, css[key]]));
@@ -32,14 +36,27 @@ function animateState(base, target, entering, preserveCurrent = true) {
 }
 function installStates() {
   for (const state of states) {
-    const base = root.querySelector(state.selector);
+    let base = root.querySelector(state.selector);
     if (!base || base.closest('.portfolio-interaction')) continue;
-    const wrapper = document.createElement('div');
+    const destination = destinations[state.name];
+    if(destination && base.matches('a')){
+      const surface=document.createElement('div');
+      for(const attribute of base.attributes)if(!['href','tabindex'].includes(attribute.name))surface.setAttribute(attribute.name,attribute.value);
+      surface.append(...base.childNodes);base.replaceWith(surface);base=surface;
+    }
+    const wrapper = document.createElement(destination ? 'a' : 'div');
     wrapper.className = 'portfolio-interaction';
     wrapper.dataset.preview = state.name;
     wrapper.tabIndex = 0;
-    wrapper.setAttribute('role', 'group');
-    wrapper.setAttribute('aria-label', state.name + ' preview');
+    if (destination) {
+      wrapper.href = destination.href;
+      wrapper.setAttribute('aria-label', destination.label);
+      if (state.name === 'connect') { wrapper.target='_blank'; wrapper.rel='noopener noreferrer'; }
+    } else {
+      wrapper.setAttribute('role', 'button');
+      wrapper.setAttribute('aria-pressed', 'false');
+      wrapper.setAttribute('aria-label', state.name.replace('-', ' ') + ' preview; details coming soon');
+    }
     base.before(wrapper); wrapper.append(base);
 
     base.querySelectorAll('a').forEach(a => a.tabIndex = -1);
@@ -47,32 +64,44 @@ function installStates() {
     const overlay = document.createElement('div');
     overlay.className = 'portfolio-hover';
     overlay.innerHTML = state.html;
+    if(destination)overlay.querySelectorAll('a').forEach(link=>{
+      const surface=document.createElement('div');
+      for(const attribute of link.attributes)if(!['href','target','tabindex'].includes(attribute.name))surface.setAttribute(attribute.name,attribute.value);
+      surface.append(...link.childNodes);link.replaceWith(surface);
+    });
     overlay.setAttribute('aria-hidden','true');
     overlay.querySelectorAll('audio').forEach(a => a.remove());
     overlay.querySelectorAll('a').forEach(a => { a.tabIndex=-1; a.addEventListener('click', e=>e.preventDefault()); });
     if (state.name === 'status') overlay.querySelector('.ui-l9xn0j').style.opacity='1';
     wrapper.append(overlay);
-    let active=false;
+    let active=false, hovered=false, focused=false, pinned=false, dismissed=false;
     const show=()=>{
       if(active)return;
       active=true;
+      if (!destination) wrapper.setAttribute('aria-pressed','true');
       const visible = Number(getComputedStyle(overlay).opacity) > 0;
       animateState(base, overlay.firstElementChild, true, visible);
       overlay.style.opacity='1';
     };
-    const hide=e=>{
-      if(wrapper.contains(e.relatedTarget)||!active)return;
+    const hide=()=>{
+      if(!active)return;
       active=false;
+      if (!destination) wrapper.setAttribute('aria-pressed','false');
       animateState(base,overlay.firstElementChild,false);
 
       overlay.style.opacity='0';
     };
-    wrapper.addEventListener('pointerover',show);
-    wrapper.addEventListener('mouseover',show);
-    wrapper.addEventListener('focusin',show);
-    wrapper.addEventListener('pointerout',hide);
-    wrapper.addEventListener('mouseout',hide);
-    wrapper.addEventListener('focusout',hide);
+    const update=()=>{if((hovered||focused||pinned)&&!dismissed)show();else hide();};
+    wrapper.addEventListener('pointerenter',e=>{if(e.pointerType==='touch')return;hovered=true;dismissed=false;update();});
+    wrapper.addEventListener('pointerleave',()=>{hovered=false;update();});
+    wrapper.addEventListener('focusin',()=>{focused=true;dismissed=false;update();});
+    wrapper.addEventListener('focusout',e=>{if(wrapper.contains(e.relatedTarget))return;focused=false;pinned=false;dismissed=false;update();});
+    const toggle=()=>{pinned=!pinned;dismissed=!pinned;update();};
+    if (!destination) wrapper.addEventListener('click',toggle);
+    wrapper.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){e.preventDefault();pinned=false;dismissed=true;update();}
+      if(!destination&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggle();}
+    });
   }
   installGradient();
 }
@@ -117,20 +146,28 @@ function render() {
   const next=innerWidth<810?'mobile':innerWidth<1200?'tablet':'desktop';
   if(next===mode)return;
   const firstRender = !mode;
+  const focusedPreview = document.activeElement?.closest('[data-preview]')?.dataset.preview;
   mode=next;
   root.getAnimations({subtree:true}).forEach(animation=>animation.cancel());
   root.replaceChildren(document.querySelector('#view-'+mode).content.cloneNode(true));
   root.querySelectorAll('a').forEach(a=>{
-    a.dataset.originalHref=a.getAttribute('href')||'';
-    a.removeAttribute('target');a.href='#';a.addEventListener('click',e=>e.preventDefault());
+    a.removeAttribute('target');a.removeAttribute('href');a.tabIndex=-1;
   });
+  root.querySelectorAll('.portfolio-hero').forEach(hero=>{
+    hero.href='about.html';hero.tabIndex=0;hero.setAttribute('aria-label','About Pavitra Patil');
+  });
+  for(const [selector,name] of [['.ui-aCoJp','connect'],['.ui-PNQnN','status']]){
+    const link=root.querySelector(selector),destination=destinations[name];
+    if(link){link.href=destination.href;link.tabIndex=0;link.setAttribute('aria-label',destination.label);}
+  }
   installStates();installHeroCursor();tick();
+  if(focusedPreview)root.querySelector(`[data-preview="${focusedPreview}"]`)?.focus({preventScroll:true});
   if (firstRender) animateEntrance();
 }
 function tick(){
 
   const time=new Date().toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});
-  root.querySelectorAll('h4').forEach(e=>{if(/^\d{1,2}:\d{2}:\d{2}\s[AP]M$/.test(e.textContent.trim()))e.textContent=time;});
+  root.querySelectorAll('[data-clock]').forEach(e=>{e.textContent=time;e.dateTime=new Date().toISOString();});
 }
 render();addEventListener('resize',render);setInterval(tick,1000);
 fetch('hover-states.json').then(r=>{if(!r.ok)throw Error('Hover states unavailable');return r.json();}).then(data=>{states=data;installStates();}).catch(console.error);
