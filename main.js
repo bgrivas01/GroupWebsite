@@ -4,11 +4,7 @@
   const container = document.querySelector('#fireworks');
   const zero = document.querySelector('#zero');
   const orbit = document.querySelector('#orbit');
-  const caption = document.querySelector('#member-caption');
-  const hint = document.querySelector('#firework-hint');
-  const progress = document.querySelector('#firework-progress');
   const motion = document.querySelector('#motion-control');
-  const spark = document.querySelector('#spark');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reducedMotion.matches;
   let clicks = 0;
@@ -34,20 +30,7 @@
   new ResizeObserver(positionOrbit).observe(zero);
 
   for (const member of orbit.querySelectorAll('.member')) {
-    const showName = () => {
-      caption.replaceChildren();
-      const name = document.createElement('strong');
-      name.textContent = member.dataset.caption;
-      const detail = document.createElement('span');
-      detail.textContent = member.dataset.detail;
-      caption.append(name, detail);
-    };
-    member.addEventListener('pointerenter', showName);
-    member.addEventListener('focus', showName);
-    member.addEventListener('click', event => {
-      event.stopPropagation();
-      showName();
-    });
+    member.addEventListener('click', event => event.stopPropagation());
   }
 
   try {
@@ -65,7 +48,6 @@
     });
   } catch (error) {
     console.warn('The scene is available, but fireworks could not load.', error);
-    spark.disabled = true;
   }
 
   function renderStatus() {
@@ -74,15 +56,6 @@
     motion.setAttribute('aria-pressed', String(paused));
     document.querySelector('#motion-label').textContent = paused ? 'Resume motion' : 'Pause motion';
     document.querySelector('.motion-icon').textContent = paused ? '▷' : 'Ⅱ';
-    spark.disabled = paused || !engine;
-    hint.textContent = !engine ? 'Fireworks couldn’t load.' : paused ? 'A quiet moment.' : clicks >= 5 ? 'Let the celebration continue.' : 'Click the sky to celebrate.';
-    progress.replaceChildren();
-    progress.append(!engine ? 'Reload to try again. The portfolios are still here.' : paused ? 'Resume motion whenever you’re ready.' : clicks >= 5 ? 'Automatic fireworks on' : '5 sparks start the show');
-    if (!paused && engine && clicks < 5) {
-      const count = document.createElement('span');
-      count.textContent = `${clicks} / 5`;
-      progress.append(count);
-    }
   }
 
   function launch(x, y) {
@@ -105,16 +78,19 @@
   }
   function celebrate(event) {
     if (!engine || paused || document.hidden) return;
-    const isSkyClick = event.currentTarget === scene;
-    if (isSkyClick && event.target.closest('a,button,header,footer,nav')) return;
-    launch(isSkyClick ? event.clientX : undefined, isSkyClick ? event.clientY : undefined);
+    if (event.target.closest('a,button,header,nav')) return;
+    launch(event.type === 'click' ? event.clientX : undefined, event.type === 'click' ? event.clientY : undefined);
     clicks = Math.min(5, clicks + 1);
     renderStatus();
     // Later clicks must not postpone the next automatic burst.
     if (clicks >= 5 && timer === null) schedule();
   }
   scene.addEventListener('click', celebrate);
-  spark.addEventListener('click', celebrate);
+  scene.addEventListener('keydown', event => {
+    if (event.target !== scene || event.repeat || !['Enter', ' '].includes(event.key)) return;
+    event.preventDefault();
+    celebrate(event);
+  });
   motion.addEventListener('click', () => {
     paused = !paused;
     scene.dataset.motionOptIn = String(!paused);
