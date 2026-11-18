@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+
+
+    <style>
+
+        body {
+            background-color: #fff0f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.5s ease;
+        }
+
+        .page-box {  
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 25px;
+            border: 5px solid #f3a6c8;
+            border-radius: 20px;
+            background-color: #fffafd;
+            box-sizing: border-box;
+            box-shadow: 0 5px 15px rgba(217, 79, 138, 0.15);
+        }
+
+        h1 {
+            color: #d94f8a;
+            font-family: Georgia, serif;
+            text-align: center;
+            animation: titleBounce 2s infinite;
+        }
+
+        h2 {
+            color: #d94f8a;
+            font-family: Georgia, serif;
+        }
+
+        p, li {
+            color: #9c4f72;
+            line-height: 1.6;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        a {
+            color: #e75480;
+            font-family: "Trebuchet MS", sans-serif;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #a52a5a;
+        }
+
+        /* image styling */
+
+        img {
+            display: block;
+            width: 500px;
+            height: 500px;
+            max-width: 100%;
+            object-fit: cover;
+            margin: 20px auto;
+            border: 5px solid #f3a6c8;
+            border-radius: 20px;
+            box-sizing: border-box;
+        }
+
+        /* button styling */
+
+        button,
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 15px;
+            margin: 5px;
+            border: 2px solid #d94f8a;
+            border-radius: 8px;
+            background-color: #ffd6e7;
+            color: #8f3f68;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover,
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #f3a6c8;
+            transform: scale(1.05);
+        }
+
+        /* FORM BOX MODEL */
+
+        form {
+            margin-top: 20px;
+            padding: 20px;
+            border: 3px solid #f3a6c8;
+            border-radius: 15px;
+            background-color: #fff0f5;
+            box-sizing: border-box;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 2px solid #e8a0bd;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+       
+
+        #response {
+            color: #d94f8a;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        #characterCount {
+            font-size: 13px;
+            color: #9c4f72;
+        }
+
+        /* animation: bouncing title */
+
+        @keyframes titleBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* sparkle cursor effect! */
+
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            color: #f3a6c8;
+            font-size: 16px;
+            animation: sparkleFade 0.8s ease-out forwards;
+            user-select: none;
+        }
+
+        @keyframes sparkleFade {
+
+            0% {
+                opacity: 1;
+                transform: scale(0.5) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3) rotate(90deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0) rotate(180deg);
+            }
+
+        }
+
+       
+
+        @media screen and (max-width: 600px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .page-box {
+                margin: 10px auto;
+                padding: 15px;
+                border-width: 3px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            input[type="text"] {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="page-box">
+
+
+    <h1>✧˚ Celebrations and About Me ✧˚</h1>
+
+    <img
+        src="disneycastle.jpg"
+        alt="Cinderella's Castle, January 2026"
+    >
+
+    <p>
+        I am Ashley Vital and I am a Computer Science Major at UHD
+        with a minor in Creative Writing. Something that I want to 
+	celebrate is the fact that I flew out to meet some of my 
+	online friends in January of this year. It was our first 
+	time meeting face-to-face but we had a lot of fun since we
+	went to Disney World. It is something I'll never forget.
+	Above is a picture of Cinderella's Castle from the trip,
+	since I don't want to intrude on my friends' privacy 
+	without their permission. 
+
+        Something else I'd like to celebrate is surviving the semester
+	(so far) and nearing the end of my academic career. I feel like
+	this is a great achievement in itself since my degree feels
+	closer than ever before. It's exciting and daunting at the same
+	time, which is strange but it is something I look forward to. 
+
+	I want to try and make a cute web app in the future, hence 
+	he application tutorial I found on YouTube. I thought it
+	could be helpful and give me pointers while also giving me
+	something to code and talk about on a resume.
+
+        It may not seem as creative as other apps, but I believe that
+        the dedication and work I'll put into it will be well worth
+        it. I have a list of other apps I'd like to make in the future
+        as well, but some of them are web apps, which is why I took
+        the course so I can have an idea of how to set them up and
+        get it all organized.
+    </p>
+
+    <!-- youtube tutorial link -->
+
+    <p class="tutorial-text">
+        Here is a link to a YouTube app tutorial that I plan to follow
+        in the future.
+    </p>
+
+    <a
+        href="https://www.youtube.com/watch?v=btxGSJ3Dh8E"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        App Tutorial
+    </a>
+
+    <!-- ordered list -->
+
+    <h2>Things I Want to Code in the Future:</h2>
+
+    <ol>
+        <li>Color Picker for Artists</li>
+        <li>Pomodoro Timer</li>
+        <li>Playlist Timer</li>
+    </ol>
+
+    <!-- bg color button -->
+
+    <h2>Try a Different Background!</h2>
+
+    <p>
+        Click the button below to change the background color.
+    </p>
+
+    <button type="button" id="colorButton">
+        Change Background Color ✧
+    </button>
+
+    <!-- GREETING BUTTON -->
+
+    <h2>Say Hello!</h2>
+
+    <button type="button" id="greetingButton">
+        Click for a Greeting
+    </button>
+
+    <p id="greeting"></p>
+
+    
+</div>
+
+
+/* javascript time */
+
+<script>
+
+    // change the background color when the button is clicked
+
+    const colorButton = document.getElementById("colorButton");
+
+    const colors = [
+        "#fff0f5",
+        "#fce4ec",
+        "#f3e5f5",
+        "#e8eaf6",
+        "#fff3e0"
+    ];
+
+    let colorIndex = 0;
+
+    colorButton.addEventListener("click", function() {
+
+        colorIndex = (colorIndex + 1) % colors.length;
+
+        document.body.style.backgroundColor =
+            colors[colorIndex];
+
+    });
+
+
+    // display a personalized greeting!
+
+    const greetingButton =
+        document.getElementById("greetingButton");
+
+    greetingButton.addEventListener("click", function() {
+
+        document.getElementById("greeting").textContent =
+            "Hi there! Thanks for checking out my About Me and Celebrations page! ✧˚";
+
+    });
+
+
+    // create sparkles that follow the user's cursor!
+
+    document.addEventListener("mousemove", function(event) {
+
+        const sparkle = document.createElement("span");
+
+        sparkle.className = "sparkle";
+
+        // Randomly choose a sparkle symbol.
+
+        const symbols = ["✧", "✦", "⋆", "˚"];
+
+        sparkle.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        // Position sparkle where the cursor is.
+
+        sparkle.style.left = event.clientX + "px";
+
+        sparkle.style.top = event.clientY + "px";
+
+        // Add sparkle to the page.
+
+        document.body.appendChild(sparkle);
+
+        // Remove sparkle after animation finishes.
+
+        setTimeout(function() {
+
+            sparkle.remove();
+
+        }, 800);
+
+    });
+
+</script>
+
+</body>
+
+</html>
