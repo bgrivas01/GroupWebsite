@@ -18,7 +18,7 @@
   </details>
   <main class="about-content">
     <section class="about-row" aria-labelledby="intro-title">
-      <img class="about-visual" src="assets/hero-texture.jpeg" alt="" width="612" height="780">
+      <div class="about-visual photo-placeholder" role="img" aria-label="Personal photo placeholder"><span>Your photo</span></div>
       <div class="about-copy">
         <h1 id="intro-title">Hey, I'm Pavitra.</h1>
         <p>I'm a Computer Science student at UHD who enjoys building creative projects and turning ideas into reality.</p>
@@ -27,32 +27,42 @@
       </div>
     </section>
     <section class="about-row reverse" aria-label="From Mumbai to Houston">
-      <img class="about-visual" src="assets/mountain.jpg" alt="" width="1365" height="2048">
+      <div class="about-visual photo-placeholder" role="img" aria-label="Personal photo placeholder"><span>Your photo</span></div>
       <div class="about-copy">
+        <span class="story-icon" aria-hidden="true">◎</span>
         <p>I grew up in Mumbai before moving to the United States in 2023 to pursue my education.</p>
         <p>Moving to the US completely changed me as a person, especially my fashion.</p>
         <p>I've also been to Austin, Frankfurt, New York, and Philadelphia—and I can say that Frankfurt is the best!</p>
       </div>
     </section>
     <section class="about-row" aria-label="Creativity and curiosity">
-      <img class="about-visual" src="assets/project-hover-2.gif" alt="" width="864" height="864">
+      <div class="about-visual photo-placeholder" role="img" aria-label="Personal photo placeholder"><span>Your photo</span></div>
       <div class="about-copy">
+        <span class="story-icon" aria-hidden="true">✳</span>
         <p>I've always been curious about how technology can transform simple ideas into meaningful experiences.</p>
         <p>Whether I'm developing software, experimenting with game mechanics, or exploring new programming concepts, I enjoy the process of learning and creating.</p>
         <p>I also love the creative side of technology, especially where programming, art, and interactive experiences come together.</p>
         <p>Beyond coding, I really enjoy connecting with people, sharing knowledge, and discovering new perspectives!</p>
       </div>
     </section>
+    <p class="about-signoff">Anyways,<br>it's nice to meet you.</p>
     <section class="about-section" aria-labelledby="side-title">
       <h2 id="side-title">Side Projects</h2>
-      <div class="side-projects"><div>Quiz Companion</div><div>ACM Discord Bot</div></div>
+      <div class="side-projects"><article><h3>Quiz Companion</h3></article><article><h3>ACM Discord Bot</h3></article></div>
+    </section>
+    <section class="about-section" aria-labelledby="camera-title">
+      <h2 id="camera-title">Some things on my camera roll…</h2>
+      <div class="camera-roll" aria-label="Personal photos to be added">
+        <div class="camera-column"><div class="photo-placeholder photo-tall"><span>Your photo</span></div><div class="photo-placeholder photo-short"><span>Your photo</span></div></div>
+        <div class="camera-column"><div class="photo-placeholder photo-square"><span>Your photo</span></div><div class="photo-placeholder photo-square"><span>Your photo</span></div></div>
+      </div>
     </section>
     <section class="about-section" aria-labelledby="languages-title">
       <h2 id="languages-title">Languages</h2>
       <div class="language-cards">
-        <article class="language-card"><span class="language-symbol" aria-hidden="true">Aa</span><div><h3>English</h3><p>Conversational</p></div></article>
-        <article class="language-card"><span class="language-symbol" aria-hidden="true">अ</span><div><h3>Hindi</h3><p>Native</p></div></article>
-        <article class="language-card"><span class="language-symbol" aria-hidden="true">你好</span><div><h3>Chinese</h3><p>Learning · HSK 0.5</p></div></article>
+        <article class="language-card"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/language-english-still.gif"><img class="language-art" src="assets/language-english.gif" width="260" height="220" alt=""></picture><div><h3>English</h3><p>Conversational</p></div></article>
+        <article class="language-card"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/language-hindi-still.gif"><img class="language-art" src="assets/language-hindi.gif" width="260" height="220" alt=""></picture><div><h3>Hindi</h3><p>Native</p></div></article>
+        <article class="language-card"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/language-chinese-still.gif"><img class="language-art" src="assets/language-chinese.gif" width="260" height="220" alt=""></picture><div><h3>Chinese</h3><p>Learning · HSK 0.5</p></div></article>
       </div>
     </section>
     <section class="about-section" aria-labelledby="loves-title">
@@ -63,12 +73,12 @@
     <section class="about-section" aria-labelledby="contact-title">
       <h2 id="contact-title">Where to find me</h2>
       <div class="about-contact">
-        <a href="mailto:pavitrapatil333@gmail.com">Email ↗</a>
-        <a href="https://www.linkedin.com/in/pavipatil/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="https://github.com/Pavi21P" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="mailto:pavitrapatil333@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/pavipatil/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/Pavi21P" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </section>
   </main>
-  <footer class="about-footer">Pavitra Patil · Houston, Texas</footer>
+  <footer class="about-footer"><a class="back-home" href="index.html">back home <span aria-hidden="true">↗</span></a><p>© Pavitra Patil 2026</p></footer>
 </body>
 </html>

@@ -78,6 +78,7 @@ function installStates() {
     const show=()=>{
       if(active)return;
       active=true;
+      wrapper.dataset.hoverActive='true';
       if (!destination) wrapper.setAttribute('aria-pressed','true');
       const visible = Number(getComputedStyle(overlay).opacity) > 0;
       animateState(base, overlay.firstElementChild, true, visible);
@@ -86,6 +87,7 @@ function installStates() {
     const hide=()=>{
       if(!active)return;
       active=false;
+      wrapper.dataset.hoverActive='false';
       if (!destination) wrapper.setAttribute('aria-pressed','false');
       animateState(base,overlay.firstElementChild,false);
 
