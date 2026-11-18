@@ -158,6 +158,9 @@ function render() {
   root.querySelectorAll('.portfolio-hero').forEach(hero=>{
     hero.href='about.html';hero.tabIndex=0;hero.setAttribute('aria-label','About Pavitra Patil');
   });
+  root.querySelectorAll('.gallery-tile').forEach(tile=>{
+    tile.href='gallery.html';tile.tabIndex=0;tile.setAttribute('aria-label','Art Gallery');
+  });
   for(const [selector,name] of [['.ui-aCoJp','connect'],['.ui-PNQnN','status']]){
     const link=root.querySelector(selector),destination=destinations[name];
     if(link){link.href=destination.href;link.tabIndex=0;link.setAttribute('aria-label',destination.label);}
