@@ -97,7 +97,7 @@
             transform: scale(1.05);
         }
 
-        /* FORM BOX MODEL */
+        
 
         form {
             margin-top: 20px;
@@ -285,7 +285,7 @@
         Change Background Color ✧
     </button>
 
-    <!-- GREETING BUTTON -->
+    <!-- greeting button -->
 
     <h2>Say Hello!</h2>
 
@@ -348,24 +348,24 @@
 
         sparkle.className = "sparkle";
 
-        // Randomly choose a sparkle symbol.
+        // randomly choose a sparkle symbol
 
         const symbols = ["✧", "✦", "⋆", "˚"];
 
         sparkle.textContent =
             symbols[Math.floor(Math.random() * symbols.length)];
 
-        // Position sparkle where the cursor is.
+        // position sparkle where the cursor is
 
         sparkle.style.left = event.clientX + "px";
 
         sparkle.style.top = event.clientY + "px";
 
-        // Add sparkle to the page.
+        // add sparkle to the page.
 
         document.body.appendChild(sparkle);
 
-        // Remove sparkle after animation finishes.
+        // remove sparkle after animation finishes
 
         setTimeout(function() {
 
