@@ -2,6 +2,6 @@
 
 Personal portfolio with responsive cards, an About page, an Art Gallery, and a Houston clock.
 
-Open `index.html` through a local web server. LinkedIn and email links are connected; project details and the resume are coming later.
+Open `index.html` through a local web server. LinkedIn, email and resume (PDF) links are connected; project details are coming later.
 
-`gallery.html` is ready for artwork. The mountain tile opens the gallery.
+`gallery.html` shows seven artworks (drawings and photos) from `assets/gallery-*.jpg`. The mountain tile opens the gallery.
