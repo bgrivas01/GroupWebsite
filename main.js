@@ -2,8 +2,7 @@
   'use strict';
   const scene = document.querySelector('#scene');
   const container = document.querySelector('#fireworks');
-  const zero = document.querySelector('#zero');
-  const orbit = document.querySelector('#orbit');
+  const orbit = document.querySelector('.portfolios');
   const motion = document.querySelector('#motion-control');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reducedMotion.matches;
@@ -11,27 +10,28 @@
   let timer = null;
   let engine = null;
 
-  // Agen has generous font metrics. Align to the painted glyph, not its line box.
-  function positionOrbit() {
-    const style = getComputedStyle(zero);
-    const context = document.createElement('canvas').getContext('2d');
-    context.font = `${style.fontSize} ${style.fontFamily}`;
-    const metrics = context.measureText('0');
-    const advance = metrics.width + parseFloat(style.letterSpacing);
-    const stretch = parseFloat(style.getPropertyValue('--zero-stretch')) || 1;
-    const baseline = (zero.offsetHeight - metrics.fontBoundingBoxAscent - metrics.fontBoundingBoxDescent) / 2 + metrics.fontBoundingBoxAscent;
-    orbit.style.left = `${zero.offsetLeft + zero.offsetWidth / 2 + (-metrics.actualBoundingBoxLeft - advance / 2) * stretch}px`;
-    orbit.style.width = `${(metrics.actualBoundingBoxLeft + metrics.actualBoundingBoxRight) * stretch}px`;
-    orbit.style.top = `${baseline - metrics.actualBoundingBoxAscent}px`;
-    orbit.style.height = `${metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent}px`;
+  // All images and hit targets share the supplied 1920 x 1080 artboard.
+  let hovered = null;
+  const states = [...document.querySelectorAll('.hover-state')];
+  function showMember() {
+    const member = hovered || (orbit.contains(document.activeElement) ? document.activeElement : null);
+    for (const image of states) {
+      image.classList.toggle('is-active', image.dataset.state === member?.dataset.state && image.complete && image.naturalWidth > 0);
+    }
   }
-  positionOrbit();
-  document.fonts.ready.then(positionOrbit);
-  new ResizeObserver(positionOrbit).observe(zero);
-
+  for (const image of states) image.addEventListener('load', showMember);
   for (const member of orbit.querySelectorAll('.member')) {
-    member.addEventListener('click', event => event.stopPropagation());
+    member.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'touch') { hovered = member; showMember(); }
+    });
+    member.addEventListener('pointerleave', () => { hovered = null; showMember(); });
+    member.addEventListener('click', event => {
+      event.stopPropagation();
+      if (member.getAttribute('aria-disabled') === 'true') event.preventDefault();
+    });
   }
+  orbit.addEventListener('focusin', () => { hovered = null; showMember(); });
+  orbit.addEventListener('focusout', () => queueMicrotask(showMember));
 
   try {
     const Fireworks = window.Fireworks?.Fireworks || window.Fireworks?.default;
@@ -46,6 +46,7 @@
       lineWidth: { explosion: { min: 1, max: 2 }, trace: { min: 1, max: 1.5 } },
       mouse: { click: false, move: false, max: 1 }, sound: { enabled: false }
     });
+    motion.hidden = false;
   } catch (error) {
     console.warn('The scene is available, but fireworks could not load.', error);
   }
@@ -55,7 +56,7 @@
     scene.dataset.bursts = String(clicks);
     motion.setAttribute('aria-pressed', String(paused));
     document.querySelector('#motion-label').textContent = paused ? 'Resume motion' : 'Pause motion';
-    document.querySelector('.motion-icon').textContent = paused ? '▷' : 'Ⅱ';
+    document.querySelector('.motion-icon').textContent = paused ? '\u25b7' : '\u2161';
   }
 
   function launch(x, y) {
@@ -64,7 +65,10 @@
     engine.updateOptions({ mouse: { move: x !== undefined } });
     if (!engine.isRunning) engine.start();
     if (x !== undefined) {
-      container.querySelector('canvas').dispatchEvent(new PointerEvent('pointermove', { clientX: x, clientY: y }));
+      const canvas = container.querySelector('canvas');
+      const rect = canvas.getBoundingClientRect();
+      // The library subtracts offsetLeft/Top, so account for our centered artboard.
+      canvas.dispatchEvent(new PointerEvent('pointermove', { clientX: x - rect.left + canvas.offsetLeft, clientY: y - rect.top + canvas.offsetTop }));
     }
     engine.launch(1);
   }

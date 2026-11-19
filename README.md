@@ -1,7 +1,5 @@
 # GroupWebsite
 
-Our web development class website. Open `index.html` for the 2026 start page.
+Our web development class website. Open index.html for the 2026 start page.
 
-The five dots in the zero lead to our portfolios. Pavitra's is available; four are coming soon. Click the sky five times to start automatic fireworks. Use Pause motion to stop the animation.
-
-Pavitra's portfolio is in `pavitra/`.
+The circles link to Pavitra, Brayan, Ashley, and Marlen. Mai's circle is reserved until the portfolio is available. Click the scene five times to start automatic fireworks; Pause motion stops them.

@@ -3,51 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080d20">
-  <meta name="description" content="A new year, five perspectives. Explore our team portfolios.">
-  <title>2026 · Our portfolios</title>
-  <link rel="preload" href="startpage-assets/fonts/agen.ttf" as="font" type="font/ttf" crossorigin>
+  <meta name="theme-color" content="#a29892">
+  <meta name="description" content="Explore our team portfolios through 2026.">
+  <title>2026 | Our portfolios</title>
   <link rel="stylesheet" href="main.css">
   <script defer src="startpage-assets/vendor/fireworks.js"></script>
   <script defer src="main.js"></script>
 </head>
 <body>
+  <svg class="filter-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Display the white export background as clear; keep the artwork RGB. -->
+      <filter id="clear-paper" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -2 -2 -2 0 4"/>
+      </filter>
+    </defs>
+  </svg>
   <main class="scene" id="scene" tabindex="0" aria-label="2026 celebration. Press Enter or Space to launch fireworks." data-mode="manual" data-bursts="0">
-    <div class="night" aria-hidden="true"></div>
-    <div class="horizon" aria-hidden="true"></div>
+    <img class="layer buildings" src="startpage-assets/artwork/building_layer2.jpg" width="1920" height="1080" alt="" fetchpriority="high">
     <div id="fireworks" class="fireworks" aria-hidden="true"></div>
-    <svg class="skyline" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-      <defs>
-        <linearGradient id="building" x2="0" y2="1"><stop stop-color="#17253e"/><stop offset="1" stop-color="#080d1b"/></linearGradient>
-        <pattern id="windows" width="18" height="24" patternUnits="userSpaceOnUse"><rect x="5" y="6" width="3" height="5" fill="#91aac5" opacity=".22"/><rect x="12" y="6" width="3" height="5" fill="#bfb494" opacity=".12"/></pattern>
-        <pattern id="windows-sparse" width="42" height="39" patternUnits="userSpaceOnUse"><rect x="7" y="9" width="3" height="4" fill="#c0beaa" opacity=".38"/></pattern>
-        <path id="near-buildings" d="M0 420V277H56V205H125V420H141V246H204V177H281V420H299V272H358V420H378V139H401V122H428V139H450V420H473V236H552V420H569V304H632V420H658V194H716V420H738V251H792V420H817V295H883V420H906V173H934V156H959V173H983V420H1008V265H1065V420H1091V222H1154V420H1176V93H1211V76H1215V93H1253V420H1278V251H1347V420H1368V214H1431V420H1456V279H1523V206H1600V420Z"/>
-      </defs>
-      <path fill="#1b2846" opacity=".6" d="M0 420V206H78V245H112V174H172V252H237V226H319V293H344V207H401V271H468V163H500V152H532V163H557V274H619V231H682V288H724V194H781V295H840V246H900V265H962V225H1024V283H1088V151H1139V241H1196V210H1275V276H1320V163H1388V264H1457V177H1519V252H1600V420Z"/>
-      <use href="#near-buildings" fill="url(#building)"/>
-      <use href="#near-buildings" fill="url(#windows)"/>
-      <use href="#near-buildings" fill="url(#windows-sparse)"/>
-      <path d="M378 139H450M906 173H983M1176 93H1253M204 177H281" stroke="#98a9c2" opacity=".2"/>
-    </svg>
-    <div class="glass" aria-hidden="true"></div>
-    <div class="window-frame" aria-hidden="true"><i></i><i></i></div>
-    <div class="window-sill" aria-hidden="true"></div>
-    <header class="masthead">
-      <button class="motion-control" id="motion-control" type="button" aria-pressed="false"><span class="motion-icon" aria-hidden="true">Ⅱ</span><span id="motion-label">Pause motion</span></button>
-    </header>
-    <section class="centerpiece" aria-label="Our five portfolios">
-      <div class="year-wrap">
-        <h1 class="year" aria-label="2026"><span>2</span><span class="zero" id="zero"><span class="zero-glyph">0</span></span><span>26</span></h1>
-        <nav class="orbit" id="orbit" aria-label="Team portfolios">
-          <a class="member member-1" href="pavitra/index.html" aria-label="Pavitra Patil — view portfolio"><span class="dot"></span></a>
-          <button class="member member-2" type="button" aria-label="Portfolio 2 — coming soon" aria-disabled="true"><span class="dot"></span></button>
-          <button class="member member-3" type="button" aria-label="Portfolio 3 — coming soon" aria-disabled="true"><span class="dot"></span></button>
-          <button class="member member-4" type="button" aria-label="Portfolio 4 — coming soon" aria-disabled="true"><span class="dot"></span></button>
-          <button class="member member-5" type="button" aria-label="Portfolio 5 — coming soon" aria-disabled="true"><span class="dot"></span></button>
-        </nav>
-      </div>
-    </section>
-    <noscript><p class="no-script">Enable JavaScript for fireworks. Pavitra’s portfolio is available through the top dot.</p></noscript>
+    <img class="layer glass clear-paper" src="startpage-assets/artwork/glass_layer1.jpg" width="1920" height="1080" alt="">
+    <img class="layer year clear-paper" src="startpage-assets/artwork/2026_layer0.5.jpg" width="1920" height="1080" alt="2026" fetchpriority="high">
+    <div class="hover-art" aria-hidden="true">
+      <img class="layer clear-paper hover-state" data-state="3" src="startpage-assets/artwork/2026v3.jpg" width="1920" height="1080" alt="">
+      <img class="layer clear-paper hover-state" data-state="2" src="startpage-assets/artwork/2026v2.jpg" width="1920" height="1080" alt="">
+      <img class="layer clear-paper hover-state" data-state="1" src="startpage-assets/artwork/2026v1.jpg" width="1920" height="1080" alt="">
+      <img class="layer clear-paper hover-state" data-state="5" src="startpage-assets/artwork/2026v5.jpg" width="1920" height="1080" alt="">
+      <img class="layer clear-paper hover-state" data-state="4" src="startpage-assets/artwork/2026v4.jpg" width="1920" height="1080" alt="">
+    </div>
+    <nav class="portfolios" aria-label="Team portfolios">
+      <a class="member" href="pavitra/index.html" data-state="2" aria-label="Pavitra Patil portfolio" title="Pavitra Patil" style="--x:45.78125%;--y:17.59259259259259%;--w:6.875%;--h:12.037037037037036%"><span class="sr-only">Pavitra Patil</span></a>
+      <a class="member" href="brayan/index.html" data-state="1" aria-label="Brayan Rivas portfolio" title="Brayan Rivas" style="--x:53.4375%;--y:30.555555555555554%;--w:7.1875%;--h:12.592592592592592%"><span class="sr-only">Brayan Rivas</span></a>
+      <a class="member" href="ashley/ashleywebpage.html" data-state="5" aria-label="Ashley Vital portfolio" title="Ashley Vital" style="--x:48.59375%;--y:46.85185185185185%;--w:7.083333333333334%;--h:12.037037037037036%"><span class="sr-only">Ashley Vital</span></a>
+      <a class="member" href="marlen/personalwebpage.html" data-state="4" aria-label="Marlen portfolio" title="Marlen" style="--x:39.375%;--y:45.55555555555555%;--w:5.625%;--h:12.037037037037036%"><span class="sr-only">Marlen</span></a>
+      <button class="member" type="button" aria-disabled="true" data-state="3" aria-label="Mai portfolio coming soon" title="Mai - coming soon" style="--x:37.552083333333336%;--y:29.629629629629626%;--w:5.416666666666667%;--h:10.925925925925926%"><span class="sr-only">Mai - coming soon</span></button>
+    </nav>
+    <button id="motion-control" class="motion-control" type="button" aria-pressed="false" hidden><span class="motion-icon" aria-hidden="true">II</span><span id="motion-label">Pause motion</span></button>
   </main>
 </body>
 </html>

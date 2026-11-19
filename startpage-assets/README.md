@@ -1,7 +1,6 @@
 # Start page assets
 
-- `fonts/agen.ttf`: Agen Giveaway font supplied for this project.
-- `vendor/fireworks.js`: fireworks-js 2.10.8, used by [Pavi21P/fireworks-js](https://github.com/Pavi21P/fireworks-js). Pinned browser distribution from npm/jsDelivr; MIT notice in `vendor/fireworks-LICENSE.txt`.
-- The animated text uses the CSS background-position technique from [Gradient Animator](https://www.gradient-animator.com/), with thirteen colors matched approximately to the supplied screenshot and a 36-second pass.
+- artwork/: supplied 2026, hover states, glass and building illustrations. The original JPEG files are unchanged; a display filter makes white areas clear on the glass and lettering.
+- vendor/fireworks.js: fireworks-js 2.10.8, used by [Pavi21P/fireworks-js](https://github.com/Pavi21P/fireworks-js). MIT notice is in vendor/fireworks-LICENSE.txt.
 
-The skyline and window are SVG and CSS in the start page.
+Layers share a 1920 x 1080 canvas: buildings, fireworks, glass, then 2026.
