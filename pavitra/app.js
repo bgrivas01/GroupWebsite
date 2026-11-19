@@ -221,7 +221,8 @@ function loadWeather(){
 }
 render();addEventListener('resize',render);setInterval(tick,1000);
 loadWeather();setInterval(loadWeather,30*60*1000);
-fetch('hover-states.json').then(r=>{if(!r.ok)throw Error('Hover states unavailable');return r.json();}).then(data=>{states=data;installStates();}).catch(console.error);
+// Loaded via <script src="hover-states.js"> (not fetch) so it also works when opened from file://
+states = hoverStates; installStates();
 reducedMotion.addEventListener('change',()=>{
   root.getAnimations({subtree:true}).forEach(a=>a.cancel());
   root.querySelectorAll('[data-animated]').forEach(el=>delete el.dataset.animated);
