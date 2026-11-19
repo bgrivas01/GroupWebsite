@@ -101,6 +101,40 @@
     if (document.hidden) engine?.stop();
     schedule();
   });
+  // js for cursor sparkle 
+  document.addEventListener("mousemove", function(event) {
+
+        const sparkle = document.createElement("span");
+
+        sparkle.className = "sparkle";
+
+        // Randomly choose a sparkle symbol.
+
+        const symbols = ["✧", "✦", "⋆", "✨", "˚"];
+
+        sparkle.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        // Position sparkle where the cursor is.
+
+        sparkle.style.left = event.clientX + "px";
+
+        sparkle.style.top = event.clientY + "px";
+
+        // Add sparkle to the page.
+
+        document.body.appendChild(sparkle);
+
+        // Remove sparkle after animation finishes.
+
+        setTimeout(function() {
+
+            sparkle.remove();
+
+        }, 800);
+
+    });
+
   window.addEventListener('pagehide', () => { clearInterval(timer); engine?.stop(); });
   window.addEventListener('pageshow', schedule);
   renderStatus();
