@@ -12,7 +12,8 @@ const spring = Array.from({length: 41}, (_, i) => {
 const easing = `linear(${spring.join(',')})`;
 const destinations = {
   connect: {href:'https://www.linkedin.com/in/pavipatil/', label:'Connect with Pavitra on LinkedIn'},
-  status: {href:'mailto:pavitrapatil333@gmail.com', label:'Email Pavitra'}
+  status: {href:'mailto:pavitrapatil333@gmail.com', label:'Email Pavitra'},
+  resume: {href:'assets/Pavitra-Patil-Resume.pdf', label:'View Pavitra\'s resume (PDF)'}
 };
 function styleValues(el) {
   const css = getComputedStyle(el);
@@ -51,7 +52,7 @@ function installStates() {
     if (destination) {
       wrapper.href = destination.href;
       wrapper.setAttribute('aria-label', destination.label);
-      if (state.name === 'connect') { wrapper.target='_blank'; wrapper.rel='noopener noreferrer'; }
+      if (state.name === 'connect' || state.name === 'resume') { wrapper.target='_blank'; wrapper.rel='noopener noreferrer'; }
     } else {
       wrapper.setAttribute('role', 'button');
       wrapper.setAttribute('aria-pressed', 'false');
