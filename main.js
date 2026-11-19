@@ -3,7 +3,6 @@
   const scene = document.querySelector('#scene');
   const container = document.querySelector('#fireworks');
   const orbit = document.querySelector('.portfolios');
-  const motion = document.querySelector('#motion-control');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reducedMotion.matches;
   let clicks = 0;
@@ -46,7 +45,6 @@
       lineWidth: { explosion: { min: 1, max: 2 }, trace: { min: 1, max: 1.5 } },
       mouse: { click: false, move: false, max: 1 }, sound: { enabled: false }
     });
-    motion.hidden = false;
   } catch (error) {
     console.warn('The scene is available, but fireworks could not load.', error);
   }
@@ -54,9 +52,6 @@
   function renderStatus() {
     scene.dataset.mode = paused ? 'paused' : clicks >= 5 ? 'automatic' : 'manual';
     scene.dataset.bursts = String(clicks);
-    motion.setAttribute('aria-pressed', String(paused));
-    document.querySelector('#motion-label').textContent = paused ? 'Resume motion' : 'Pause motion';
-    document.querySelector('.motion-icon').textContent = paused ? '\u25b7' : '\u2161';
   }
 
   function launch(x, y) {
@@ -95,21 +90,11 @@
     event.preventDefault();
     celebrate(event);
   });
-  motion.addEventListener('click', () => {
-    paused = !paused;
-    scene.dataset.motionOptIn = String(!paused);
+  reducedMotion.addEventListener('change', event => {
+    paused = event.matches;
     if (paused) engine?.stop();
     schedule();
     renderStatus();
-  });
-  reducedMotion.addEventListener('change', event => {
-    if (event.matches) {
-      paused = true;
-      scene.dataset.motionOptIn = 'false';
-      engine?.stop();
-      schedule();
-      renderStatus();
-    }
   });
   document.addEventListener('visibilitychange', () => {
     scene.dataset.suspended = String(document.hidden);

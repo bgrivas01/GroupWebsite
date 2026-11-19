@@ -19,9 +19,5 @@ body { min-height: 100svh; display: grid; place-items: center; background: #a298
 .member { position: absolute; left: var(--x); top: var(--y); width: max(24px, var(--w)); height: max(24px, var(--h)); transform: translate(-50%, -50%); border-radius: 50%; border: 0; padding: 0; background: transparent; cursor: pointer; pointer-events: auto; -webkit-tap-highlight-color: transparent; }
 .member:focus-visible { outline: 2px solid #fff; outline-offset: 3px; box-shadow: 0 0 0 5px #242039; }
 .member[aria-disabled="true"] { cursor: default; }
-.motion-control { position: absolute; z-index: 6; bottom: 3%; right: 2%; min-height: 32px; border: 0; border-radius: 3px; padding: 6px 9px; color: #eee; background: #171222d9; font: 11px Arial, sans-serif; cursor: pointer; }
-.motion-control[hidden] { display: none; }
-.motion-icon { margin-right: 7px; }
-.motion-control:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 @media (prefers-reduced-motion: reduce) { .hover-state { transition: none; } }
