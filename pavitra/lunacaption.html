@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LunaCaption | Pavitra Patil</title>
+  <meta name="description" content="LunaCaption: a Windows desktop app by Pavitra Patil that captions batches of images locally with BLIP, lets you edit them, and exports CSV or JSON.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="about-page project-page" style="--accent:#6a52c4">
+  <details class="about-menu">
+    <summary aria-label="Open navigation menu"><span class="menu-bars" aria-hidden="true"></span></summary>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Art Gallery</a>
+      <a href="mailto:pavitrapatil333@gmail.com">Say hello ↗</a>
+    </nav>
+  </details>
+  <main class="project-content">
+    <header class="project-header">
+      <h1>LunaCaption</h1>
+      <p class="project-lede">A Windows desktop app that writes captions for a whole batch of images on your own computer, lets you edit them, and exports the results.</p>
+      <div class="project-links">
+        <a class="project-button" href="https://github.com/Pavi21P/lumacaption" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+    <img class="project-cover" src="assets/project-1.svg" width="1100" height="800" alt="LunaCaption logo, a faceted purple crescent moon with caption lines, above a photo and its generated caption">
+    <dl class="project-facts">
+      <div><dt>Type</dt><dd>Desktop app for Windows</dd></div>
+      <div><dt>Built with</dt><dd>Python, Tkinter, BLIP</dd></div>
+      <div><dt>Status</dt><dd>Working build</dd></div>
+    </dl>
+
+    <section class="project-section" aria-labelledby="overview">
+      <h2 id="overview">Overview</h2>
+      <p>LunaCaption turns a folder of photos into written captions. It runs the pretrained Salesforce BLIP base model locally, so images are never sent to an online captioning service, and it works offline once the model (about 1&nbsp;GB) has been downloaded.</p>
+      <p>The captions are drafts: you can review every one, fix it, and then export the whole batch for a dataset, an archive, or alt text.</p>
+    </section>
+
+    <section class="project-section" aria-labelledby="features">
+      <h2 id="features">What it does</h2>
+      <ul class="project-list">
+        <li>Add individual images, or open a whole folder with its subfolders.</li>
+        <li>Choose short, standard, or long captions.</li>
+        <li>Runs on the CPU by default, with an optional CUDA (GPU) mode that falls back to the CPU.</li>
+        <li>Preview each image next to its caption, edit it, restore the original AI text, or copy it.</li>
+        <li>Save a session and reopen it later. Sessions store image paths, not copies, and can relink images that were moved. A recovery copy is kept automatically.</li>
+        <li>Export to CSV or to JSON, which also records the original captions and the model revision.</li>
+        <li>Keyboard shortcuts for adding images, generating, exporting, saving, opening, and cancelling.</li>
+      </ul>
+    </section>
+
+    <section class="project-section" aria-labelledby="workflow">
+      <h2 id="workflow">How it works</h2>
+      <ol class="project-steps">
+        <li>Add images or open a folder.</li>
+        <li>Pick a caption length and click <strong>Generate captions</strong>.</li>
+        <li>Select a row to preview the image and edit its draft caption.</li>
+        <li>Export the batch to CSV or JSON.</li>
+      </ol>
+    </section>
+
+    <section class="project-section" aria-labelledby="stack">
+      <h2 id="stack">Built with</h2>
+      <ul class="project-tags">
+        <li>Python 3.11–3.13</li><li>Tkinter</li><li>Salesforce BLIP (Hugging Face)</li><li>PowerShell setup scripts</li><li>pytest</li><li>ruff</li>
+      </ul>
+    </section>
+
+    <section class="project-section" aria-labelledby="notes">
+      <h2 id="notes">Notes</h2>
+      <p>The project has 310 automated tests. Caption quality was measured with BLEU and ROUGE scores on a 50-image local sample; a human review of the captions is still to come.</p>
+      <p>LunaCaption uses BLIP as a pretrained model and does not claim to have trained it. The repository still uses the project's earlier name, LumaCaption.</p>
+    </section>
+
+    <nav class="project-pager" aria-label="More projects">
+      <a href="uhd-tools.html"><span>Previous</span>UHD Extension + Course Planner</a>
+      <a href="games.html"><span>Next</span>Games</a>
+    </nav>
+  </main>
+  <footer class="about-footer"><a class="back-home" href="index.html">back home <span aria-hidden="true">↗</span></a><p>© Pavitra Patil 2026</p></footer>
+</body>
+</html>

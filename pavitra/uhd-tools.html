@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UHD Extension + Course Planner | Pavitra Patil</title>
+  <meta name="description" content="Two tools by Pavitra Patil for UHD students: a browser extension with a weekly timetable, and a visual course planner with prerequisite branches.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="about-page project-page" style="--accent:#c75644">
+  <details class="about-menu">
+    <summary aria-label="Open navigation menu"><span class="menu-bars" aria-hidden="true"></span></summary>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Art Gallery</a>
+      <a href="mailto:pavitrapatil333@gmail.com">Say hello ↗</a>
+    </nav>
+  </details>
+  <main class="project-content">
+    <header class="project-header">
+      <h1>UHD Extension + Course Planner</h1>
+      <p class="project-lede">Two tools I'm building for students at the University of Houston–Downtown: a browser extension for planning your week, and a visual map of your degree.</p>
+      <div class="project-links">
+        <a class="project-button" href="https://uhd-course-planner.pages.dev" target="_blank" rel="noopener noreferrer">Try the Course Planner <span aria-hidden="true">↗</span></a>
+        <a class="project-button secondary" href="https://github.com/Pavi21P/uhd-student-extension" target="_blank" rel="noopener noreferrer">Extension on GitHub <span aria-hidden="true">↗</span></a>
+        <a class="project-button secondary" href="https://github.com/Pavi21P/uhd-course-planner" target="_blank" rel="noopener noreferrer">Planner on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+    <img class="project-cover" src="assets/project-4.svg" width="1100" height="800" alt="UHD Extension + Course Planner logo, a puzzle piece with a course path, above a weekly timetable and a prerequisite map">
+    <dl class="project-facts">
+      <div><dt>Type</dt><dd>Browser extension and web app</dd></div>
+      <div><dt>Built with</dt><dd>TypeScript, React, Vite</dd></div>
+      <div><dt>Status</dt><dd>Planner live; extension in development</dd></div>
+    </dl>
+
+    <section class="project-section" aria-labelledby="planner">
+      <div class="project-entry-head"><h2 id="planner" style="margin:0">Course Planner</h2><span class="status-badge">Live</span></div>
+      <p>A visual planner for UHD's 2025–2026 degree plans. It lays out the required courses as a map, with arrows showing which classes unlock which, so you can see the path to graduation at a glance.</p>
+      <ul class="project-list">
+        <li>Covers the Computer Science, Mathematics, Chemistry, and Biology BS plans, with optional Mathematics and Data Science minors.</li>
+        <li>Drag branches around, mark the courses you've already taken, and undo or redo changes.</li>
+        <li>Shows your credit totals and exports the whole plan as a PNG image.</li>
+        <li>Plans are saved only in your own browser. Nothing is uploaded.</li>
+      </ul>
+      <p>It's an independent student project and not an official UHD degree audit, so always confirm your plan with an advisor.</p>
+      <ul class="project-tags"><li>React</li><li>TypeScript</li><li>Vite</li><li>React Flow</li><li>Cloudflare Pages</li></ul>
+    </section>
+
+    <section class="project-section" aria-labelledby="extension">
+      <div class="project-entry-head"><h2 id="extension" style="margin:0">UHD Student Extension</h2><span class="status-badge wip">In development</span></div>
+      <p>A Chrome and Edge extension that brings planning tools into the browser. The current build includes:</p>
+      <ul class="project-list">
+        <li>A weekly timetable: add course cards and meeting times, see them on a grid, and get a warning when classes overlap.</li>
+        <li>Backup and import of your timetable as a JSON file.</li>
+        <li>A preview of professor profile links.</li>
+        <li>A shortcut to the Course Planner from the extension's dashboard.</li>
+      </ul>
+      <p>Professor ratings and opt-in enrollment help are planned next. The extension only asks for the browser's <code>storage</code> permission.</p>
+      <ul class="project-tags"><li>TypeScript</li><li>Vite</li><li>Manifest V3</li><li>Vitest</li><li>Playwright</li></ul>
+    </section>
+
+    <nav class="project-pager" aria-label="More projects">
+      <a href="refit.html"><span>Previous</span>RefIt</a>
+      <a href="lunacaption.html"><span>Next</span>LunaCaption</a>
+    </nav>
+  </main>
+  <footer class="about-footer"><a class="back-home" href="index.html">back home <span aria-hidden="true">↗</span></a><p>© Pavitra Patil 2026</p></footer>
+</body>
+</html>

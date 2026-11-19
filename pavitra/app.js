@@ -13,7 +13,11 @@ const easing = `linear(${spring.join(',')})`;
 const destinations = {
   connect: {href:'https://www.linkedin.com/in/pavipatil/', label:'Connect with Pavitra on LinkedIn'},
   status: {href:'mailto:pavitrapatil333@gmail.com', label:'Email Pavitra'},
-  resume: {href:'assets/Pavitra-Patil-Resume.pdf', label:'View Pavitra\'s resume (PDF)'}
+  resume: {href:'assets/Pavitra-Patil-Resume.pdf', label:'View Pavitra\'s resume (PDF)'},
+  'project-1': {href:'lunacaption.html', label:'LunaCaption project'},
+  'project-2': {href:'games.html', label:'Games projects'},
+  'project-3': {href:'refit.html', label:'RefIt project'},
+  'project-4': {href:'uhd-tools.html', label:'UHD Extension and Course Planner project'}
 };
 function styleValues(el) {
   const css = getComputedStyle(el);

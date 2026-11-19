@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RefIt | Pavitra Patil</title>
+  <meta name="description" content="RefIt: a personal art-reference library by Pavitra Patil, built with Python and Django. Save images, sort them into folders, tag them, and find them again.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="about-page project-page refit-page" style="--accent:#576344">
+  <details class="about-menu">
+    <summary aria-label="Open navigation menu"><span class="menu-bars" aria-hidden="true"></span></summary>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Art Gallery</a>
+      <a href="mailto:pavitrapatil333@gmail.com">Say hello ↗</a>
+    </nav>
+  </details>
+  <main class="project-content">
+    <header class="project-header">
+      <h1>RefIt.</h1>
+      <p class="project-lede">A personal art-reference library. Save the images that catch your eye, sort them into folders, tag them, and find them again when you sit down to draw.</p>
+      <div class="project-links">
+        <a class="project-button" href="https://github.com/Pavi21P/RefIt" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+    <img class="project-cover" src="assets/project-3.svg" width="1100" height="800" alt="RefIt logo, a G-pen nib beside the serif wordmark RefIt, above a grid of saved reference images">
+    <dl class="project-facts">
+      <div><dt>Type</dt><dd>Web app</dd></div>
+      <div><dt>Built with</dt><dd>Python, Django, HTML, CSS, JavaScript</dd></div>
+      <div><dt>Status</dt><dd>Working app, runs locally</dd></div>
+    </dl>
+
+    <section class="project-section" aria-labelledby="overview">
+      <h2 id="overview">Overview</h2>
+      <p>RefIt is a place to keep art references in one spot. Every account gets a private library on the server, with tools for organizing it: named folders, your own tags, favorites, and search.</p>
+      <p>The public home page shows a sample collection of public-domain artwork from the Art Institute of Chicago. Creating an account starts an empty, private library.</p>
+    </section>
+
+    <section class="project-section" aria-labelledby="features">
+      <h2 id="features">What it does</h2>
+      <ul class="project-list">
+        <li>Upload several images at once, drag files onto the page, or paste an image from the clipboard.</li>
+        <li>Organize references into named folders, rename folders, and move images between them.</li>
+        <li>Create custom tags and search by title, notes, or <code>#tag</code>.</li>
+        <li>Mark favorites, download untouched originals, and move images to a Trash you can restore from.</li>
+        <li>Switch between light and dark themes; the choice is remembered in your browser.</li>
+        <li>Browse a responsive masonry gallery with thumbnails and pages of results.</li>
+      </ul>
+      <p>It accepts PNG, JPEG, WebP, GIF, BMP, and TIFF files up to 25&nbsp;MB and 40 megapixels each, with no limit on how many images you keep.</p>
+    </section>
+
+    <section class="project-section" aria-labelledby="how">
+      <h2 id="how">How it works</h2>
+      <p>RefIt is a Django app. Accounts, folders, and tags live in a SQLite database, and the original images and their thumbnails are stored on the server's disk. Images are only served through routes that check you're logged in and own the image, so nobody else can open your uploads by guessing a link.</p>
+      <p>A small amount of plain JavaScript handles uploading, drag-and-drop, pasting, and theme switching. Everything else is server-rendered HTML and CSS.</p>
+    </section>
+
+    <section class="project-section" aria-labelledby="stack">
+      <h2 id="stack">Built with</h2>
+      <ul class="project-tags">
+        <li>Python 3.11+</li><li>Django</li><li>SQLite</li><li>HTML</li><li>CSS</li><li>Vanilla JavaScript</li><li>Waitress</li>
+      </ul>
+    </section>
+
+    <section class="project-section" aria-labelledby="next">
+      <h2 id="next">What's next</h2>
+      <p>RefIt runs locally today. It needs a Python host with a persistent disk to go online, since GitHub Pages can't run a Python server. Color picking and palette extraction, password recovery, and email verification are planned for later versions.</p>
+    </section>
+
+    <nav class="project-pager" aria-label="More projects">
+      <a href="games.html"><span>Previous</span>Games</a>
+      <a href="uhd-tools.html"><span>Next</span>UHD Extension + Course Planner</a>
+    </nav>
+  </main>
+  <footer class="about-footer"><a class="back-home" href="index.html">back home <span aria-hidden="true">↗</span></a><p>© Pavitra Patil 2026</p></footer>
+</body>
+</html>

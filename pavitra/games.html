@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Games | Pavitra Patil</title>
+  <meta name="description" content="Games by Pavitra Patil: Gomoku with a heuristic AI in Python, Coin Catchers in Unity, and the UHD ACM multiplayer 2D platformer.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="gomoku-ai.js"></script>
+  <script defer src="gomoku.js"></script>
+</head>
+<body class="about-page project-page" style="--accent:#e8402c">
+  <details class="about-menu">
+    <summary aria-label="Open navigation menu"><span class="menu-bars" aria-hidden="true"></span></summary>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Art Gallery</a>
+      <a href="mailto:pavitrapatil333@gmail.com">Say hello ↗</a>
+    </nav>
+  </details>
+  <main class="project-content">
+    <header class="project-header">
+      <h1>Games</h1>
+      <p class="project-lede">Game development is how I got into programming. These are three games I've built: a board game with its own AI, a 2D platformer in Unity, and a multiplayer platformer with my university's ACM club.</p>
+    </header>
+    <img class="project-cover" src="assets/project-2.svg" width="1100" height="800" alt="Games logo, a blue and a red game controller on either side of the word Games, above a row of colorful game tiles">
+    <dl class="project-facts">
+      <div><dt>Games</dt><dd>3 projects</dd></div>
+      <div><dt>Built with</dt><dd>Python, Pygame, Unity, C#</dd></div>
+      <div><dt>Status</dt><dd>2 finished, 1 in progress</dd></div>
+    </dl>
+
+    <section class="project-section" aria-labelledby="games-list">
+      <h2 id="games-list">The games</h2>
+
+      <article class="project-entry" aria-labelledby="gomoku">
+        <div class="project-entry-head"><h3 id="gomoku">Gomoku</h3><span class="status-badge">Finished</span></div>
+        <p>Five in a row on a 15×15 board, played against a computer opponent that explains its moves. It's a standalone Python and Pygame course project; all graphics are drawn in code.</p>
+        <p><strong>Play it right here.</strong> Click an intersection to place a stone, or use the arrow keys and press Enter. Connect five or more in any direction to win.</p>
+
+        <div class="gomoku-game" id="gomoku-game" style="--accent:#25644f">
+          <div class="gomoku-layout">
+            <div class="gomoku-board-wrap">
+              <canvas id="gomoku-board" class="gomoku-board" tabindex="0" role="img" aria-label="Gomoku board, 15 by 15"></canvas>
+            </div>
+            <div class="gomoku-panel" role="group" aria-label="Gomoku controls">
+              <p id="gomoku-status" class="gomoku-status" data-state="play">Loading…</p>
+              <p id="gomoku-last" class="gomoku-last">No moves yet</p>
+              <fieldset class="gomoku-choice">
+                <legend>Difficulty</legend>
+                <label><input type="radio" name="gomoku-difficulty" value="Easy"><span>Easy</span></label>
+                <label><input type="radio" name="gomoku-difficulty" value="Medium" checked><span>Medium</span></label>
+                <label><input type="radio" name="gomoku-difficulty" value="Hard"><span>Hard</span></label>
+              </fieldset>
+              <fieldset class="gomoku-choice">
+                <legend>Your stones</legend>
+                <label><input type="radio" name="gomoku-color" value="1" checked><span>Black, you start</span></label>
+                <label><input type="radio" name="gomoku-color" value="2"><span>White, AI starts</span></label>
+              </fieldset>
+              <div class="gomoku-buttons">
+                <button type="button" id="gomoku-undo" class="project-button secondary">Undo turn <kbd>U</kbd></button>
+                <button type="button" id="gomoku-new" class="project-button">New game <kbd>R</kbd></button>
+              </div>
+              <div class="gomoku-ai">
+                <h4 id="gomoku-ai-title">AI's last decision</h4>
+                <p id="gomoku-reason" class="gomoku-reason"></p>
+                <p id="gomoku-stats" class="gomoku-stats"></p>
+              </div>
+            </div>
+          </div>
+          <p id="gomoku-announce" class="visually-hidden" aria-live="polite"></p>
+          <p class="gomoku-note">This is a JavaScript version of the Python game with the same rules and AI, so it can run in your browser. The orange ring marks the latest stone. While playing, press <kbd>U</kbd> to undo your turn and <kbd>R</kbd> for a new game.</p>
+        </div>
+
+        <ul class="project-list">
+          <li>Easy, Medium, and Hard difficulty, and you choose your stone color.</li>
+          <li>Undo your last turn, even while the AI is thinking, and review the board after a game.</li>
+          <li>A live AI panel shows how deep the search went, how many positions it visited, and how long it took.</li>
+        </ul>
+        <p><strong>How the AI works.</strong> It uses classic game AI, not machine learning. It first checks for winning moves and forced blocks, then scores nearby moves by recognizing patterns like open threes and fours. Finally it searches ahead with negamax and alpha-beta pruning, getting deeper each round until it runs out of time.</p>
+        <table class="project-table">
+          <caption class="visually-hidden">Search limits for each difficulty</caption>
+          <thead><tr><th scope="col">Difficulty</th><th scope="col">Look-ahead</th><th scope="col">Time limit</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Easy</th><td>1 move</td><td>0.20 s</td></tr>
+            <tr><th scope="row">Medium</th><td>3 moves</td><td>0.65 s</td></tr>
+            <tr><th scope="row">Hard</th><td>5 moves</td><td>1.40 s</td></tr>
+          </tbody>
+        </table>
+        <ul class="project-tags"><li>Python 3.11+</li><li>Pygame</li><li>unittest</li></ul>
+        <div class="project-links"><a class="project-button" href="https://github.com/Pavi21P/gomoku-ai" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a></div>
+      </article>
+
+      <article class="project-entry" aria-labelledby="coin-catchers">
+        <div class="project-entry-head"><h3 id="coin-catchers">Coin Catchers</h3><span class="status-badge">Finished</span></div>
+        <p>A 2D platformer in Unity with three levels. Run, jump, climb ladders, shoot enemies, and collect coins on the way to each level's exit.</p>
+        <ul class="project-list">
+          <li>A title screen, lives, and sound effects.</li>
+          <li>Enemies, coin pickups, ladders, and shooting, built from my own C# scripts.</li>
+          <li>Controls: A/D or arrow keys to move, W/S to climb, Space to jump, and left click or Enter to shoot.</li>
+        </ul>
+        <p>Sprites come from Super Platformer Assets by Foxfin, supplied through GameDev.tv.</p>
+        <ul class="project-tags"><li>Unity 2022.3</li><li>C#</li><li>Universal Render Pipeline</li><li>Input System</li></ul>
+        <div class="project-links"><a class="project-button" href="https://github.com/Pavi21P/coin-catchers" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a></div>
+      </article>
+
+      <article class="project-entry" aria-labelledby="acm-platformer">
+        <div class="project-entry-head"><h3 id="acm-platformer">UHD ACM 2D Platformer</h3><span class="status-badge wip">Work in progress</span></div>
+        <p>A multiplayer 2D platformer we're building as a team in UHD's ACM club. Players join one game together, vote on a map, and build the level as they play by placing and rotating pieces on a grid.</p>
+        <p><strong>My part so far:</strong></p>
+        <ul class="project-list">
+          <li>A shared camera that follows one player or zooms out to keep every player in view.</li>
+          <li>Rotating placeable pieces with the R key while dragging them in build mode.</li>
+          <li>Host-controlled player movement and ladder climbing over the network.</li>
+          <li>Map voting and host-controlled multiplayer rounds.</li>
+          <li>Fixes to scene loading and the multiplayer startup scenes.</li>
+        </ul>
+        <ul class="project-tags"><li>Unity 6</li><li>C#</li><li>Photon Fusion</li><li>Team project</li></ul>
+        <div class="project-links"><a class="project-button" href="https://github.com/UHDACM/2D-Platformer" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a></div>
+      </article>
+    </section>
+
+    <nav class="project-pager" aria-label="More projects">
+      <a href="lunacaption.html"><span>Previous</span>LunaCaption</a>
+      <a href="refit.html"><span>Next</span>RefIt</a>
+    </nav>
+  </main>
+  <footer class="about-footer"><a class="back-home" href="index.html">back home <span aria-hidden="true">↗</span></a><p>© Pavitra Patil 2026</p></footer>
+</body>
+</html>

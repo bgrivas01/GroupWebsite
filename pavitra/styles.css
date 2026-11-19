@@ -1616,3 +1616,113 @@ body{font-family:Inter,Arial,sans-serif}
  .gallery-footer{margin-top:100px;padding-bottom:60px}.gallery-footer>p{font-size:16px;line-height:24px}
 }
 @media(prefers-reduced-motion:reduce){.gallery-tile img,.gallery-tile-arrow{transition:none}.gallery-tile:hover img,.gallery-tile:focus-visible img,.gallery-tile:hover .gallery-tile-arrow,.gallery-tile:focus-visible .gallery-tile-arrow{transform:none}}
+/* Project pages: share the About page menu, type and footer. --accent is set per page. */
+.project-page{--accent:#c75644}
+.project-content{width:min(880px,calc(100% - 100px));margin:0 auto;padding:140px 0 0}
+.project-header h1{font:600 64px/1.05 Inter,Arial,sans-serif;letter-spacing:-.04em;color:#111;margin:0 0 20px}
+.project-lede{font:300 24px/36px Inter,Arial,sans-serif;color:#666;margin:0;max-width:720px}
+.project-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.project-button{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;background:#111;color:#fff;text-decoration:none;font:500 16px/1 Inter,Arial,sans-serif}
+.project-button.secondary{background:#f2f1ef;color:#111}
+.project-button:hover{background:var(--accent);color:#fff}
+.project-cover{display:block;width:100%;height:auto;border-radius:28px;margin-top:64px;box-shadow:0 16px 40px rgba(0,0,0,.06)}
+.project-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:56px 0 0;padding:28px 0;border-top:1px solid #ececec;border-bottom:1px solid #ececec}
+.project-facts dt{font:500 13px/18px Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8a8a8a}
+.project-facts dd{margin:6px 0 0;font:400 18px/26px Inter,Arial,sans-serif;color:#222}
+.project-section{margin-top:96px}
+.project-section h2{font:400 40px/50px Inter,Arial,sans-serif;letter-spacing:-1.5px;color:#111;margin:0 0 20px}
+.project-section h3{font:500 26px/34px Inter,Arial,sans-serif;letter-spacing:-.5px;color:#111;margin:0}
+.project-section p,.project-list li,.project-steps li{font:300 20px/32px Inter,Arial,sans-serif;color:#555}
+.project-section p{margin:0 0 20px}
+.project-section code{font:400 .9em/1 Consolas,monospace;background:#f4f3f1;border-radius:6px;padding:2px 6px;color:#333}
+.project-list,.project-steps{margin:0 0 20px;padding:0;display:grid;gap:12px}
+.project-list{list-style:none}
+.project-list li{position:relative;padding-left:28px}
+.project-list li:before{content:'';position:absolute;left:4px;top:12px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.project-steps{padding-left:28px}
+.project-steps li::marker{color:var(--accent);font-weight:600}
+.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.project-tags li{padding:6px 14px;border-radius:999px;background:#f4f3f1;font:400 15px/22px Inter,Arial,sans-serif;color:#333}
+.project-entry{padding:40px 0;border-top:1px solid #ececec}
+.project-entry:first-of-type{border-top:0;padding-top:8px}
+.project-entry-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:16px}
+.status-badge{display:inline-flex;align-items:center;min-height:28px;padding:0 12px;border-radius:999px;font:500 13px/1 Inter,Arial,sans-serif;background:#eef4e8;color:#3f5a26}
+.status-badge.wip{background:#fff1d6;color:#7a4b00}
+.project-table{width:100%;border-collapse:collapse;margin:8px 0 24px;font:400 16px/24px Inter,Arial,sans-serif;color:#333}
+.project-table th,.project-table td{padding:10px 12px;border-bottom:1px solid #ececec;text-align:left}
+.project-table th{font-weight:500;color:#8a8a8a;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.project-table td:not(:first-child),.project-table th:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}
+.project-pager{display:flex;justify-content:space-between;gap:16px;margin-top:120px;padding-top:28px;border-top:1px solid #ececec}
+.project-pager a{display:flex;flex-direction:column;gap:4px;min-height:44px;color:#111;text-decoration:none;font:400 20px/28px Inter,Arial,sans-serif}
+.project-pager a span{font:500 13px/18px Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8a8a8a}
+.project-pager a:last-child{text-align:right;margin-left:auto}
+.project-pager a:hover{color:var(--accent)}
+.refit-page .project-header h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.03em}
+@media(min-width:810px) and (max-width:1199px){.project-header h1{font-size:56px}}
+@media(max-width:809px){
+ .project-content{width:calc(100% - 40px);padding-top:110px}
+ .project-header h1{font-size:44px}
+ .project-lede{font-size:20px;line-height:30px}
+ .project-cover{margin-top:40px;border-radius:18px}
+ .project-facts{grid-template-columns:1fr;gap:16px;margin-top:40px}
+ .project-section{margin-top:64px}
+ .project-section h2{font-size:32px;line-height:40px}
+ .project-section h3{font-size:22px;line-height:30px}
+ .project-section p,.project-list li,.project-steps li{font-size:18px;line-height:28px}
+ .project-table{font-size:14px}.project-table th,.project-table td{padding:8px 6px}
+ .project-pager{margin-top:80px}
+ .project-pager a{font-size:17px;line-height:24px}
+}
+.visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.project-table tbody th{font-size:inherit;font-weight:500;letter-spacing:0;text-transform:none;color:#222}
+/* Playable Gomoku */
+.gomoku-content{width:min(1040px,calc(100% - 100px))}
+.gomoku-back{margin:0 0 16px}
+.gomoku-back a{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:#666;text-decoration:none;font:400 16px/1 Inter,Arial,sans-serif}
+.gomoku-back a:hover{color:var(--accent)}
+.gomoku-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:32px;align-items:start;margin-top:48px}
+.gomoku-board-wrap{background:#efede5;border-radius:24px;padding:14px}
+.gomoku-board{display:block;width:100%;aspect-ratio:1;border-radius:14px;cursor:pointer;touch-action:manipulation}
+.gomoku-board:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.gomoku-panel{display:grid;gap:22px}
+.gomoku-status{margin:0;font:600 28px/34px Inter,Arial,sans-serif;letter-spacing:-.02em;color:#1e312e}
+.gomoku-status[data-state="thinking"]{color:#25644f}
+.gomoku-status[data-state="loss"]{color:#9d3c34}
+.gomoku-last{margin:-14px 0 0;font:400 15px/22px Inter,Arial,sans-serif;color:#667469}
+.gomoku-choice{margin:0;padding:0;border:0;display:flex;flex-wrap:wrap;gap:8px}
+.gomoku-choice legend{padding:0;margin-bottom:8px;font:500 13px/18px Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8a8a8a}
+.gomoku-choice label{position:relative;flex:1 1 auto}
+.gomoku-choice input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.gomoku-choice span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border-radius:12px;background:#f2f1ef;font:500 15px/1.2 Inter,Arial,sans-serif;color:#333;text-align:center}
+.gomoku-choice input:checked+span{background:var(--accent);color:#fff}
+.gomoku-choice input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.gomoku-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gomoku-buttons .project-button{justify-content:center;border:0;cursor:pointer;padding:0 14px}
+.gomoku-buttons .project-button:disabled{opacity:.45;cursor:not-allowed}
+.gomoku-buttons .project-button:disabled:hover{background:#f2f1ef;color:#111}
+.gomoku-content kbd{font:500 12px/1 Inter,Arial,sans-serif;padding:3px 6px;border-radius:5px;background:rgba(0,0,0,.08)}
+.gomoku-buttons .project-button:not(.secondary) kbd{background:rgba(255,255,255,.2)}
+.gomoku-ai{padding:20px;border-radius:18px;background:#e7eee3}
+.gomoku-ai h2,.gomoku-ai h4{margin:0 0 8px;font:500 13px/18px Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#25644f}
+.gomoku-reason{margin:0 0 8px;font:500 18px/26px Inter,Arial,sans-serif;color:#1e312e}
+.gomoku-stats{margin:0;font:400 14px/21px Inter,Arial,sans-serif;color:#667469;font-variant-numeric:tabular-nums}
+@media(max-width:899px){
+ .gomoku-content{width:calc(100% - 40px)}
+ .gomoku-layout{grid-template-columns:1fr;gap:24px;margin-top:32px}
+ .gomoku-board-wrap{padding:8px;border-radius:18px}
+ .gomoku-status{font-size:24px;line-height:30px}
+}
+.gomoku-game{margin:32px 0 40px}
+.gomoku-game .gomoku-layout{margin-top:0;grid-template-columns:minmax(0,1fr) 300px;gap:28px}
+.gomoku-note{margin:16px 0 0!important;font:400 15px/23px Inter,Arial,sans-serif!important;color:#777!important}
+.gomoku-game kbd{font:500 12px/1 Inter,Arial,sans-serif;padding:3px 6px;border-radius:5px;background:rgba(0,0,0,.08)}
+.gomoku-game .gomoku-buttons .project-button:not(.secondary) kbd{background:rgba(255,255,255,.2)}
+@media(max-width:899px){.gomoku-game .gomoku-layout{grid-template-columns:1fr;gap:24px}}
+/* Inside project sections, keep the game panel's own type (project-section p would override it). */
+.gomoku-game p.gomoku-status{margin:0;font:600 28px/34px Inter,Arial,sans-serif;letter-spacing:-.02em;color:#1e312e}
+.gomoku-game p.gomoku-status[data-state="thinking"]{color:#25644f}
+.gomoku-game p.gomoku-status[data-state="loss"]{color:#9d3c34}
+.gomoku-game p.gomoku-last{margin:-14px 0 0;font:400 15px/22px Inter,Arial,sans-serif;color:#667469}
+.gomoku-game p.gomoku-reason{margin:0 0 8px;font:500 18px/26px Inter,Arial,sans-serif;color:#1e312e}
+.gomoku-game p.gomoku-stats{margin:0;font:400 14px/21px Inter,Arial,sans-serif;color:#667469}
+@media(max-width:899px){.gomoku-game p.gomoku-status{font-size:24px;line-height:30px}}
