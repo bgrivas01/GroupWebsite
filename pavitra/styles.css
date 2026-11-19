@@ -1494,6 +1494,8 @@ body{font-family:Inter,Arial,sans-serif}
 [data-preview="connect"]:not([data-hover-active="true"]) > .portfolio-hover .ui-ro46pv{visibility:hidden}
 @font-face{font-family:Inter;src:url('assets/inter-light.woff2') format('woff2');font-weight:300;font-display:swap}
 .about-page{background:#fff;color:#111;font-family:Inter,Arial,sans-serif;margin:0}
+.about-reveal-pending{opacity:0;transform:translateY(80px)}
+@media(prefers-reduced-motion:reduce),print{.about-reveal-pending{opacity:1!important;transform:none!important}}
 .about-menu{position:fixed;z-index:20;top:0;left:50%;transform:translateX(-50%);width:168px;border-radius:0 0 26px 26px;background:#c75644;color:#75352a;text-align:center}
 .about-menu:before,.about-menu:after{content:'';position:absolute;top:0;width:26px;height:26px;pointer-events:none}
 .about-menu:before{right:100%;background:radial-gradient(circle at 0 100%,transparent 25px,#c75644 26px)}
