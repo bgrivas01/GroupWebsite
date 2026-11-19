@@ -16,6 +16,7 @@
       <!-- Display the white export background as clear; keep the artwork RGB. -->
       <filter id="clear-paper" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
         <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -2 -2 -2 0 4"/>
+        <feComposite in2="SourceGraphic" operator="in"/>
       </filter>
     </defs>
   </svg>
