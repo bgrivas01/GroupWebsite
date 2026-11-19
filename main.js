@@ -110,7 +110,7 @@
 
         // Randomly choose a sparkle symbol.
 
-        const symbols = ["✧", "✦", "⋆", "✨", "˚"];
+        const symbols = ["✧", "✦", "⋆", "˚"];
 
         sparkle.textContent =
             symbols[Math.floor(Math.random() * symbols.length)];
