@@ -1,1 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="800" viewBox="0 0 1100 800"><rect width="1100" height="800" rx="30" fill="#edf0df"/><circle cx="1010" cy="80" r="310" fill="#4f5e38" opacity=".12"/><g font-family="Arial,sans-serif" fill="#4f5e38"><text x="68" y="125" font-size="28" letter-spacing="5">SELECTED WORK / 03</text><text x="68" y="290" font-size="100" font-weight="700">Project 03</text><text x="68" y="355" font-size="30">Details coming soon</text></g><rect x="68" y="425" width="965" height="310" rx="25" fill="#4f5e38" opacity=".12"/><rect x="110" y="473" width="500" height="22" rx="11" fill="#4f5e38" opacity=".3"/><rect x="110" y="522" width="700" height="14" rx="7" fill="#4f5e38" opacity=".18"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="800" viewBox="0 0 1100 800">
+  <!-- Colors and type follow RefIt's static/app.css: paper #efeee9, text #292b26, accent #576344, Georgia serif -->
+  <rect width="1100" height="800" rx="30" fill="#efeee9"/>
+
+  <!-- G-pen nib: one solid ink shape; slit, breather hole and shoulder are negative space.
+       Sized to the wordmark's cap height, tip resting on the baseline. -->
+  <defs>
+    <mask id="nibCuts" maskUnits="userSpaceOnUse" x="-60" y="-90" width="120" height="190">
+      <path d="M-30 -66 L30 -66 L30 -10 C30 24 10 52 0 86 C-10 52 -30 24 -30 -10 Z" fill="#fff"/>
+      <path d="M-34 -40 Q0 -30 34 -40" fill="none" stroke="#000" stroke-width="6"/>
+      <circle cx="0" cy="4" r="9" fill="#000"/>
+      <path d="M0 10 L0 90" stroke="#000" stroke-width="5"/>
+    </mask>
+  </defs>
+  <g transform="translate(120 200) rotate(35) scale(.75)">
+    <rect x="-40" y="-80" width="80" height="180" fill="#292b26" mask="url(#nibCuts)"/>
+  </g>
+
+  <text x="206" y="252" font-family="Georgia,'Times New Roman',serif" font-size="150" letter-spacing="-7" fill="#292b26">RefIt<tspan fill="#576344">.</tspan></text>
+
+  <!-- A quiet glimpse of the collection grid -->
+  <g>
+    <rect x="68" y="372" width="190" height="150" rx="6" fill="#c9d0b8"/>
+    <circle cx="200" cy="420" r="22" fill="#f3efe2"/>
+    <path d="M68 480 C120 455 170 470 258 450 L258 522 L68 522Z" fill="#8f9a78"/>
+    <rect x="68" y="538" width="110" height="10" rx="5" fill="#292b26" opacity=".7"/>
+    <rect x="68" y="558" width="76" height="8" rx="4" fill="#73746b" opacity=".55"/>
+    <rect x="68" y="596" width="190" height="130" rx="6" fill="#e2ddd0"/>
+    <path d="M110 690 C130 640 180 640 210 670" fill="none" stroke="#73746b" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+
+    <rect x="282" y="372" width="190" height="236" rx="6" fill="#4a4237"/>
+    <ellipse cx="377" cy="470" rx="46" ry="58" fill="#a07f5f"/>
+    <path d="M300 608 C320 540 434 540 454 608Z" fill="#6b5a47"/>
+    <rect x="282" y="624" width="96" height="10" rx="5" fill="#292b26" opacity=".7"/>
+    <rect x="282" y="644" width="130" height="8" rx="4" fill="#73746b" opacity=".55"/>
+
+    <rect x="496" y="372" width="190" height="140" rx="6" fill="#d9c49a"/>
+    <path d="M496 470 L560 430 L610 458 L686 412 L686 512 L496 512Z" fill="#b59a68"/>
+    <rect x="496" y="528" width="124" height="10" rx="5" fill="#292b26" opacity=".7"/>
+    <rect x="496" y="548" width="90" height="8" rx="4" fill="#73746b" opacity=".55"/>
+    <rect x="496" y="586" width="190" height="180" rx="6" fill="#a9b4c2"/>
+    <g fill="#e9eddf" opacity=".75"><ellipse cx="545" cy="630" rx="20" ry="7"/><ellipse cx="630" cy="660" rx="26" ry="8"/><ellipse cx="560" cy="710" rx="24" ry="7"/></g>
+
+    <rect x="710" y="372" width="190" height="196" rx="6" fill="#c9a48f"/>
+    <rect x="732" y="396" width="146" height="148" rx="3" fill="none" stroke="#efeee9" stroke-width="4" opacity=".7"/>
+    <rect x="710" y="584" width="104" height="10" rx="5" fill="#292b26" opacity=".7"/>
+    <rect x="710" y="604" width="140" height="8" rx="4" fill="#73746b" opacity=".55"/>
+    <rect x="710" y="642" width="190" height="120" rx="6" fill="#dedfd6"/>
+  </g>
+</svg>

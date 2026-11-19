@@ -1,1 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="800" viewBox="0 0 1100 800"><rect width="1100" height="800" rx="30" fill="#f8e9cc"/><circle cx="1010" cy="80" r="310" fill="#92530e" opacity=".12"/><g font-family="Arial,sans-serif" fill="#92530e"><text x="68" y="125" font-size="28" letter-spacing="5">SELECTED WORK / 01</text><text x="68" y="290" font-size="100" font-weight="700">Project 01</text><text x="68" y="355" font-size="30">Details coming soon</text></g><rect x="68" y="425" width="965" height="310" rx="25" fill="#92530e" opacity=".12"/><rect x="110" y="473" width="500" height="22" rx="11" fill="#92530e" opacity=".3"/><rect x="110" y="522" width="700" height="14" rx="7" fill="#92530e" opacity=".18"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="800" viewBox="0 0 1100 800">
+  <defs>
+    <mask id="crescent">
+      <circle cx="775" cy="165" r="100" fill="#fff"/>
+      <circle cx="819" cy="133" r="86" fill="#000"/>
+    </mask>
+    <clipPath id="frame"><rect x="68" y="400" width="340" height="320" rx="20"/></clipPath>
+    <mask id="miniMoon">
+      <circle cx="320" cy="470" r="30" fill="#fff"/>
+      <circle cx="334" cy="460" r="26" fill="#000"/>
+    </mask>
+  </defs>
+
+  <rect width="1100" height="800" rx="30" fill="#f2eef6"/>
+
+  <!-- Logo: faceted crescent (flat cut-crystal planes) with caption lines resting in its hollow -->
+  <g mask="url(#crescent)">
+    <rect x="660" y="50" width="240" height="240" fill="#6a52c4"/>
+    <polygon points="819,133 600,40 600,0 1000,0 1000,133" fill="#9a86e2"/>
+    <polygon points="819,133 690,350 1000,350 1000,133" fill="#45338f"/>
+  </g>
+  <g stroke="#2f2560" stroke-width="14" stroke-linecap="round">
+    <line x1="790" y1="166" x2="856" y2="166"/>
+    <line x1="790" y1="194" x2="828" y2="194"/>
+  </g>
+
+  <text x="68" y="250" font-family="Arial,sans-serif" font-size="94" font-weight="700" letter-spacing="-2" fill="#2f2560">LunaCaption</text>
+
+  <!-- Mockup: photo being captioned, flat colour bands -->
+  <g clip-path="url(#frame)">
+    <rect x="68" y="400" width="340" height="320" fill="#45338f"/>
+    <rect x="68" y="500" width="340" height="80" fill="#6a52c4"/>
+    <rect x="68" y="580" width="340" height="60" fill="#9a86e2"/>
+    <rect x="68" y="640" width="340" height="80" fill="#e9c6b8"/>
+    <g fill="#f2eef6" mask="url(#miniMoon)"><rect x="280" y="430" width="80" height="80"/></g>
+    <path d="M68 650 L150 585 L210 625 L280 562 L408 660 L408 720 L68 720Z" fill="#574399"/>
+    <path d="M68 686 L170 640 L260 676 L340 636 L408 668 L408 720 L68 720Z" fill="#2f2560"/>
+  </g>
+
+  <!-- Mockup: caption and batch list -->
+  <g transform="translate(428 400)">
+    <rect width="534" height="320" rx="20" fill="#fbfaff" stroke="#ddd6ee" stroke-width="2"/>
+    <rect x="30" y="30" width="96" height="22" rx="11" fill="#e4ddf5"/>
+    <rect x="44" y="38" width="68" height="6" rx="3" fill="#6a52c4"/>
+    <g fill="#2f2560" opacity=".55">
+      <rect x="30" y="74" width="440" height="14" rx="7"/>
+      <rect x="30" y="100" width="380" height="14" rx="7"/>
+      <rect x="30" y="126" width="250" height="14" rx="7"/>
+    </g>
+    <rect x="290" y="122" width="3" height="22" rx="1.5" fill="#6a52c4"/>
+    <line x1="30" y1="166" x2="504" y2="166" stroke="#ddd6ee" stroke-width="2"/>
+    <rect x="30" y="184" width="40" height="40" rx="8" fill="#6a52c4"/>
+    <rect x="86" y="194" width="250" height="9" rx="4.5" fill="#2f2560" opacity=".35"/>
+    <rect x="86" y="210" width="170" height="7" rx="3.5" fill="#2f2560" opacity=".18"/>
+    <circle cx="490" cy="204" r="10" fill="#6a52c4"/>
+    <path d="M485 204 l4 4 7-8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="30" y="238" width="40" height="40" rx="8" fill="#9a86e2"/>
+    <rect x="86" y="248" width="210" height="9" rx="4.5" fill="#2f2560" opacity=".35"/>
+    <rect x="86" y="264" width="140" height="7" rx="3.5" fill="#2f2560" opacity=".18"/>
+    <circle cx="490" cy="258" r="10" fill="none" stroke="#9a86e2" stroke-width="2.5"/>
+  </g>
+</svg>
