@@ -166,16 +166,57 @@ function render() {
     const link=root.querySelector(selector),destination=destinations[name];
     if(link){link.href=destination.href;link.tabIndex=0;link.setAttribute('aria-label',destination.label);}
   }
-  installStates();installHeroCursor();tick();
+  installStates();installHeroCursor();tick();paintWeather();
   if(focusedPreview)root.querySelector(`[data-preview="${focusedPreview}"]`)?.focus({preventScroll:true});
   if (firstRender) animateEntrance();
 }
+const HOUSTON={timeZone:'America/Chicago'};
 function tick(){
+  const now=new Date();
+  const parts=Object.fromEntries(new Intl.DateTimeFormat('en-US',{...HOUSTON,hour:'numeric',minute:'2-digit',hour12:true}).formatToParts(now).map(p=>[p.type,p.value]));
+  const hour=Number(new Intl.DateTimeFormat('en-US',{...HOUSTON,hour:'numeric',hourCycle:'h23'}).format(now));
+  const greeting=hour<5?'Good night':hour<12?'Good morning':hour<17?'Good afternoon':hour<22?'Good evening':'Good night';
+  const date=now.toLocaleDateString('en-US',{...HOUSTON,weekday:'short',month:'short',day:'numeric'});
+  root.querySelectorAll('[data-clock]').forEach(e=>{
+    const ampm=document.createElement('span');ampm.className='hero-ampm';ampm.textContent=parts.dayPeriod;
+    e.replaceChildren(`${parts.hour}:${parts.minute}`,ampm);e.dateTime=now.toISOString();
+  });
+  root.querySelectorAll('[data-greeting]').forEach(e=>e.textContent=greeting);
+  root.querySelectorAll('[data-date]').forEach(e=>e.textContent=date);
+}
 
-  const time=new Date().toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});
-  root.querySelectorAll('[data-clock]').forEach(e=>{e.textContent=time;e.dateTime=new Date().toISOString();});
+// Houston weather from Open-Meteo (no API key). Hidden if the request fails.
+let weather=null;
+const weatherIcons={
+  clear:'<circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/>',
+  night:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
+  cloud:'<path d="M7 18h10a4 4 0 0 0 .5-8 5.5 5.5 0 0 0-10.6 1.3A3.4 3.4 0 0 0 7 18z"/>',
+  rain:'<path d="M7 15h10a4 4 0 0 0 .5-8 5.5 5.5 0 0 0-10.6 1.3A3.4 3.4 0 0 0 7 15z"/><path d="M8.5 18.5l-1 2M12.5 18.5l-1 2M16.5 18.5l-1 2"/>',
+  storm:'<path d="M7 14h10a4 4 0 0 0 .5-8 5.5 5.5 0 0 0-10.6 1.3A3.4 3.4 0 0 0 7 14z"/><path d="M12.5 15.5l-2 3.5h3l-2 3.5"/>',
+  fog:'<path d="M4 9h16M6 13h12M4 17h16"/>',
+  snow:'<path d="M12 4v16M5 8l14 8M19 8L5 16"/>'
+};
+function describeWeather(code,isDay){
+  if(code===0||code===1)return [isDay?'Clear':'Clear night',isDay?'clear':'night'];
+  if(code<=3)return ['Cloudy','cloud'];
+  if(code<=48)return ['Foggy','fog'];
+  if(code<=67||(code>=80&&code<=82))return ['Rainy','rain'];
+  if(code<=77||code===85||code===86)return ['Snowy','snow'];
+  return ['Stormy','storm'];
+}
+function paintWeather(){
+  if(!weather)return;
+  root.querySelectorAll('[data-weather]').forEach(e=>{e.textContent=`${weather.temp}°F ${weather.label}`;e.hidden=false;});
+  root.querySelectorAll('[data-weather-icon]').forEach(e=>{e.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${weatherIcons[weather.icon]}</svg>`;});
+}
+function loadWeather(){
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=29.76&longitude=-95.37&current=temperature_2m,weather_code,is_day&temperature_unit=fahrenheit&timezone=America%2FChicago')
+    .then(r=>{if(!r.ok)throw Error('Weather unavailable');return r.json();})
+    .then(d=>{const [label,icon]=describeWeather(d.current.weather_code,d.current.is_day===1);weather={temp:Math.round(d.current.temperature_2m),label,icon};paintWeather();})
+    .catch(()=>{});
 }
 render();addEventListener('resize',render);setInterval(tick,1000);
+loadWeather();setInterval(loadWeather,30*60*1000);
 fetch('hover-states.json').then(r=>{if(!r.ok)throw Error('Hover states unavailable');return r.json();}).then(data=>{states=data;installStates();}).catch(console.error);
 reducedMotion.addEventListener('change',()=>{
   root.getAnimations({subtree:true}).forEach(a=>a.cancel());

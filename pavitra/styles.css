@@ -1480,11 +1480,25 @@ body{font-family:Inter,Arial,sans-serif}
 .portfolio-interaction:focus-visible,.portfolio-hero:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #685ce9;outline-offset:5px}
 [data-preview="connect"] span{background-image:none!important;color:#fff!important}
 [data-preview="connect"] p{font-family:Inter,Arial,sans-serif}
-@media(min-width:810px) and (max-width:1199px){.hero-location,.hero-intro{left:40px;right:40px}.hero-intro h1{font-size:40px}}
+/* Bento-style hero: big clock, greeting + date, Houston weather. Sits directly on the hero texture. */
+.hero-clock{display:block;font:700 104px/1 Inter,Arial,sans-serif;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.hero-clock .hero-ampm{font-size:.28em;font-weight:500;letter-spacing:0;margin-left:.22em}
+.hero-meta{margin-top:14px!important}
+.hero-dot{margin:0 .45em;opacity:.7}
+.hero-weather{display:flex;flex-wrap:wrap;align-items:center;column-gap:.4em;opacity:.92}
+.hero-weather>span{white-space:nowrap}
+.hero-weather [data-weather]{margin-right:.6em}
+.hero-weather-icon{display:inline-flex;width:1em;height:1em}
+.hero-weather-icon:empty{display:none}
+.hero-weather-icon svg{width:100%;height:100%}
+.hero-bento~.hero-intro{top:auto;bottom:9.4%}
+@media(min-width:810px) and (max-width:1199px){.hero-location,.hero-intro{left:40px;right:40px}.hero-intro h1{font-size:40px}.hero-clock{font-size:88px}}
 @media(max-width:809px){
   .ui-n3VJY .ui-cv7xn6{height:240px!important}
-  .hero-location{top:24px;left:24px;right:24px;font-size:16px;line-height:25px}
-  .hero-intro{top:112px;left:24px;right:24px}
+  .hero-location{top:24px;left:24px;right:24px;font-size:14px;line-height:20px}
+  .hero-clock{font-size:36px;line-height:40px;letter-spacing:-.03em}
+  .hero-meta{margin-top:2px!important}
+  .hero-intro,.hero-bento~.hero-intro{top:124px;bottom:auto;left:24px;right:24px}
   .hero-intro h1{font-size:32px}
   .hero-intro p{font-size:17px;line-height:26px;margin-top:8px}
 }
