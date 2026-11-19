@@ -20,7 +20,7 @@
   </details>
   <main class="about-content">
     <section class="about-row" aria-labelledby="intro-title">
-      <div class="about-visual photo-placeholder" role="img" aria-label="Personal photo placeholder"><span>Your photo</span></div>
+      <img class="about-visual" src="assets/about-profile.jpg" width="457" height="750" alt="Pavitra wearing a blue shirt" fetchpriority="high">
       <div class="about-copy">
         <h1 id="intro-title">Hey, I'm Pavitra.</h1>
         <p>I'm a Computer Science student at UHD who enjoys building creative projects and turning ideas into reality.</p>
@@ -29,7 +29,7 @@
       </div>
     </section>
     <section class="about-row reverse" aria-label="From Mumbai to Houston">
-      <div class="about-visual photo-placeholder" role="img" aria-label="Personal photo placeholder"><span>Your photo</span></div>
+      <img class="about-visual" src="assets/about-childhood.jpg" width="1081" height="951" alt="Pavitra as a child" loading="lazy" decoding="async">
       <div class="about-copy">
         <span class="story-icon" aria-hidden="true">✾</span>
         <p>I grew up in Mumbai before moving to the United States in 2023 to pursue my education.</p>
@@ -54,9 +54,15 @@
     </section>
     <section class="about-section" aria-labelledby="camera-title">
       <h2 id="camera-title">Some things on my camera roll…</h2>
-      <div class="camera-roll" aria-label="Personal photos to be added">
-        <div class="camera-column"><div class="photo-placeholder photo-tall"><span>Your photo</span></div><div class="photo-placeholder photo-short"><span>Your photo</span></div></div>
-        <div class="camera-column"><div class="photo-placeholder photo-square"><span>Your photo</span></div><div class="photo-placeholder photo-square"><span>Your photo</span></div></div>
+      <div class="camera-roll" aria-label="Photos from my camera roll">
+        <div class="camera-column">
+          <img class="camera-photo" src="assets/camera-sushi.jpg" width="1675" height="2389" alt="Sushi rolls on a wooden serving board" loading="lazy" decoding="async">
+          <img class="camera-photo" src="assets/camera-mural.jpg" width="4624" height="3468" alt="Colorful painted brick installation with pink lighting" loading="lazy" decoding="async">
+        </div>
+        <div class="camera-column">
+          <img class="camera-photo" src="assets/camera-museum.jpg" width="3468" height="4624" alt="Geometric artwork and colorful sculptures in a museum gallery" loading="lazy" decoding="async">
+          <img class="camera-photo" src="assets/camera-peacock.jpg" width="6120" height="8160" alt="A detailed peacock artwork with sparkling decorations" loading="lazy" decoding="async">
+        </div>
       </div>
     </section>
     <section class="about-section" aria-labelledby="languages-title">
@@ -64,7 +70,7 @@
       <div class="language-cards">
         <article class="language-card"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/language-english-still.gif"><img class="language-art" src="assets/language-english.gif" width="260" height="220" alt=""></picture><div><h3>English</h3><p>Conversational</p></div></article>
         <article class="language-card"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/language-hindi-still.gif"><img class="language-art" src="assets/language-hindi.gif" width="260" height="220" alt=""></picture><div><h3>Hindi</h3><p>Native</p></div></article>
-        <article class="language-card"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/language-chinese-still.gif"><img class="language-art" src="assets/language-chinese.gif" width="260" height="220" alt=""></picture><div><h3>Chinese</h3><p>Learning · HSK 0.5</p></div></article>
+        <article class="language-card"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/language-chinese-still.gif"><img class="language-art" src="assets/language-chinese.gif" width="260" height="220" alt=""></picture><div><h3>Chinese</h3><p>HSK 0.5</p></div></article>
       </div>
     </section>
     <section class="about-section" aria-labelledby="loves-title">
