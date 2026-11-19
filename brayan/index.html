@@ -8,39 +8,162 @@
       background-image: url("Space-Background-Images.jpg"); 
       
     }
-     @keyframes color-change {
-      0%   {color: red;}
-      25%  {color: yellow;}
-      50%  {color: blue;}
-      100% {color: green;}
-     }
-
     p, ul, h1, h2  {
       color: white;
-      animation: color-change 5s infinite;
     }
     a {
       color: orange;
     }
     .all {
+      background: rgba(10,10,30,0.6); backdrop-filter: blur(10px); border-radius: 16px;
+      background-size: cover; 
+      background-attachment: fixed;
       margin-top: 50px;
       margin-bottom: 50px;
       margin-left: 250px;
       margin-right: 250px;
-      background-color: rgba(0, 0, 0, 0.5);
       border: 15px solid black;
       padding: 0px;
+      text-align: center;
+      
     }
-   
+    .profile-photo {
+     border-radius: 50%; 
+     object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    }
+    h1{
+      text-align: center;
+    }
+    ul {
+      list-style: none;       
+      padding: 0;
+      text-align: center;    
+    }
+
+  li {
+    margin-bottom: 20px;
+  }
+
+  table {
+    margin: 10px auto 0;    
+  }
+    [data-theme="light"] .all {
+      background-color: rgba(255, 255, 255, 0.85);
+      border-color: #5b7cfa;
+    }
+    [data-theme="light"] p,
+    [data-theme="light"] ul,
+    [data-theme="light"] h1,
+    [data-theme="light"] h2,
+    [data-theme="light"] table {
+      animation: none;
+      color: #111827;
+    }
+    [data-theme="light"] a {
+      color: #c2410c;
+    }
+
+    #themeToggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 999px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #5b7cfa;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s;
+      z-index: 10;
+    }
+    #themeToggle:hover {
+      transform: scale(1.08);
+    }
+    .size-controls {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+    .size-controls button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #5b7cfa;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s;
+    }
+    .size-controls button:hover {
+      transform: scale(1.08);
+    }
+    .size-controls button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .cursor {
+      animation: blink 0.8s step-end infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .social-links a {
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: #5b7cfa;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+    .social-links a:hover {
+      transform: translateY(-3px);
+    }
+    [data-theme="light"] .social-links a {
+      color: white;
+    }
+
+    [data-theme="light"] body {
+      background-image: url("Light-Background.jpg");
+      background-size: cover;
+      background-attachment: fixed; 
+    }
+
+
     </style>
-    
+
 </head>
 <body>
 
-  <div class="all">
-  <h1>Brayan Rivas</h1>
+  <div class="size-controls">
+    <button id="smallerText" aria-label="Make text smaller">A−</button>
+    <button id="biggerText" aria-label="Make text bigger">A+</button>
+  </div>
 
-  <img src="Picture1.png" alt="Photo of Brayan Rivas" width="200">
+  <button id="themeToggle" aria-label="Toggle light and dark theme">☀️ Light</button>
+
+  <div class="all">
+  <h1 aria-label="Brayan Rivas"><span id="typewriter">Brayan Rivas</span><span class="cursor">|</span></h1>
+
+  <img class = "profile-photo" src="Picture1.png" alt="Photo of Brayan Rivas" width="200">
 
   <p>Here is a link to my favorite book:</p>
   <a class= "link" href="https://en.wikipedia.org/wiki/Flowers_for_Algernon">Flowers For Algernon</a>
@@ -111,19 +234,72 @@
     </li>
   </ul>
 
-<p>This is a use of javascript:</p>
- <p>Count: <span id="number">0</span></p>
-  <button id="counterButton">Add 1</button>
-  <script>
-    let number = 0;
-    const display = document.getElementById("number");
-    const button = document.getElementById("counterButton");
+  <h2>Connect With Me</h2>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/brayan-rivas-397577327/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://github.com/bgrivas01" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
 
-    button.addEventListener("click", () => {
-      number+=1;
-      display.textContent = number;
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+
+    function applyTheme(theme) {
+      root.setAttribute("data-theme", theme);
+      themeToggle.textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";
+    }
+
+    let savedTheme = "dark";
+    try { savedTheme = localStorage.getItem("theme") || "dark"; } catch (e) {}
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      applyTheme(next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
     });
+
+    // ---------- Text size buttons ----------
+    const sizes = [100, 115, 130, 150, 175];   // percent of normal size
+    let sizeIndex = 0;
+    try {
+      const saved = Number(localStorage.getItem("textSizeIndex"));
+      if (saved >= 0 && saved < sizes.length) sizeIndex = saved;
+    } catch (e) {}
+
+    const biggerBtn = document.getElementById("biggerText");
+    const smallerBtn = document.getElementById("smallerText");
+
+    function applySize() {
+      root.style.fontSize = sizes[sizeIndex] + "%";
+      smallerBtn.disabled = sizeIndex === 0;
+      biggerBtn.disabled = sizeIndex === sizes.length - 1;
+      try { localStorage.setItem("textSizeIndex", sizeIndex); } catch (e) {}
+    }
+
+    biggerBtn.addEventListener("click", () => {
+      if (sizeIndex < sizes.length - 1) { sizeIndex++; applySize(); }
+    });
+    smallerBtn.addEventListener("click", () => {
+      if (sizeIndex > 0) { sizeIndex--; applySize(); }
+    });
+    applySize();
+
+    const typeTarget = document.getElementById("typewriter");
+    const fullText = "Brayan Rivas";
+    typeTarget.textContent = "";
+
+    let charIndex = 0;
+    function typeNext() {
+      if (charIndex < fullText.length) {
+        typeTarget.textContent += fullText[charIndex];
+        charIndex++;
+        setTimeout(typeNext, 120);
+      }
+    }
+    setTimeout(typeNext, 400);
   </script>
 
+  </div>
 </body>
 </html>
